@@ -32,6 +32,7 @@ class PlaySoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Function to set variable pitch
     func setVariablePitch(pitch: Float) {
         engine.stop()
         engine.reset()
@@ -57,7 +58,59 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.play()
     }
     
-    //IBActions
+    // Function to set variable delay
+    func setVariableDelay(delay: Double) {
+        engine.stop()
+        engine.reset()
+        
+        let audioPlayerNode = AVAudioPlayerNode()
+        engine.attachNode(audioPlayerNode)
+        
+        let changeDelayEffect = AVAudioUnitDelay()
+        changeDelayEffect.delayTime = delay
+        engine.attachNode(changeDelayEffect)
+        
+        engine.connect(audioPlayerNode, to: changeDelayEffect, format: nil)
+        engine.connect(changeDelayEffect, to: engine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        
+        do {
+            try engine.start()
+        } catch {
+            print("Unable to start audio engine")
+        }
+        
+        audioPlayerNode.play()
+    }
+    
+    // Function to set distortion preset
+    func setDistortionPreset(preset: AVAudioUnitDistortionPreset) {
+        engine.stop()
+        engine.reset()
+        
+        let audioPlayerNode = AVAudioPlayerNode()
+        engine.attachNode(audioPlayerNode)
+        
+        let addDistortionEffect = AVAudioUnitDistortion()
+        addDistortionEffect.loadFactoryPreset(preset)
+        engine.attachNode(addDistortionEffect)
+        
+        engine.connect(audioPlayerNode, to: addDistortionEffect, format: nil)
+        engine.connect(addDistortionEffect, to: engine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        
+        do {
+            try engine.start()
+        } catch {
+            print("Unable to start audio engine")
+        }
+        
+        audioPlayerNode.play()
+    }
+    
+    // IBActions
     @IBAction func playbackChipmunk(sender: UIButton) {
         setVariablePitch(1000)
     }
@@ -66,6 +119,18 @@ class PlaySoundsViewController: UIViewController {
         setVariablePitch(-1000)
     }
     
+    @IBAction func playbackEcho(sender: UIButton) {
+        setVariableDelay(1.5)
+    }
+    
+    @IBAction func playbackAlien(sender: UIButton) {
+        setDistortionPreset(AVAudioUnitDistortionPreset.SpeechAlienChatter)
+    }
+    
+    @IBAction func stopPlayback(sender: UIButton) {
+        engine.stop()
+        engine.reset()
+    }
 
     /*
     // MARK: - Navigation

@@ -64,6 +64,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
                                 <rect key="frame" x="81" y="198" width="35" height="30"/>
                                 <state key="normal" title="Echo"/>
+                                <connections>
+                                    <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Bgo-io-eEd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
                                 <rect key="frame" x="72" y="289" width="52" height="30"/>
@@ -76,6 +79,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
                                 <rect key="frame" x="257" y="198" width="34" height="30"/>
                                 <state key="normal" title="Alien"/>
+                                <connections>
+                                    <action selector="playbackAlien:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="tET-qr-u7e"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
                                 <rect key="frame" x="79" y="391" width="39" height="30"/>
@@ -88,6 +94,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47h-2a-XPm">
                                 <rect key="frame" x="171" y="506" width="32" height="30"/>
                                 <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopPlayback:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Aq0-ni-Lgz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
                                 <rect key="frame" x="254" y="109" width="40" height="30"/>
@@ -103,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYP-Gk-qpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1195.5" y="384.5"/>
+            <point key="canvasLocation" x="1219.5" y="456.5"/>
         </scene>
     </scenes>
 </document>
