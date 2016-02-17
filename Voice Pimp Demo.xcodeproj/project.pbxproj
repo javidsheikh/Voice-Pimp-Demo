@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F97DE2A11C74CD8D00AED138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE2A01C74CD8D00AED138 /* AppDelegate.swift */; };
+		F97DE2A31C74CD8D00AED138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE2A21C74CD8D00AED138 /* ViewController.swift */; };
+		F97DE2A61C74CD8D00AED138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97DE2A41C74CD8D00AED138 /* Main.storyboard */; };
+		F97DE2A81C74CD8D00AED138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97DE2A71C74CD8D00AED138 /* Assets.xcassets */; };
+		F97DE2AB1C74CD8D00AED138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97DE2A91C74CD8D00AED138 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F97DE29D1C74CD8D00AED138 /* Voice Pimp Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voice Pimp Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F97DE2A01C74CD8D00AED138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F97DE2A21C74CD8D00AED138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F97DE2A51C74CD8D00AED138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F97DE2A71C74CD8D00AED138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F97DE2AA1C74CD8D00AED138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F97DE2AC1C74CD8D00AED138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F97DE29A1C74CD8D00AED138 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F97DE2941C74CD8D00AED138 = {
+			isa = PBXGroup;
+			children = (
+				F97DE29F1C74CD8D00AED138 /* Voice Pimp Demo */,
+				F97DE29E1C74CD8D00AED138 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F97DE29E1C74CD8D00AED138 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F97DE29D1C74CD8D00AED138 /* Voice Pimp Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F97DE29F1C74CD8D00AED138 /* Voice Pimp Demo */ = {
+			isa = PBXGroup;
+			children = (
+				F97DE2A01C74CD8D00AED138 /* AppDelegate.swift */,
+				F97DE2A21C74CD8D00AED138 /* ViewController.swift */,
+				F97DE2A41C74CD8D00AED138 /* Main.storyboard */,
+				F97DE2A71C74CD8D00AED138 /* Assets.xcassets */,
+				F97DE2A91C74CD8D00AED138 /* LaunchScreen.storyboard */,
+				F97DE2AC1C74CD8D00AED138 /* Info.plist */,
+			);
+			path = "Voice Pimp Demo";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F97DE29C1C74CD8D00AED138 /* Voice Pimp Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F97DE2AF1C74CD8D00AED138 /* Build configuration list for PBXNativeTarget "Voice Pimp Demo" */;
+			buildPhases = (
+				F97DE2991C74CD8D00AED138 /* Sources */,
+				F97DE29A1C74CD8D00AED138 /* Frameworks */,
+				F97DE29B1C74CD8D00AED138 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Voice Pimp Demo";
+			productName = "Voice Pimp Demo";
+			productReference = F97DE29D1C74CD8D00AED138 /* Voice Pimp Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F97DE2951C74CD8D00AED138 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Javid Sheikh";
+				TargetAttributes = {
+					F97DE29C1C74CD8D00AED138 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = F97DE2981C74CD8D00AED138 /* Build configuration list for PBXProject "Voice Pimp Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F97DE2941C74CD8D00AED138;
+			productRefGroup = F97DE29E1C74CD8D00AED138 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F97DE29C1C74CD8D00AED138 /* Voice Pimp Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F97DE29B1C74CD8D00AED138 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F97DE2AB1C74CD8D00AED138 /* LaunchScreen.storyboard in Resources */,
+				F97DE2A81C74CD8D00AED138 /* Assets.xcassets in Resources */,
+				F97DE2A61C74CD8D00AED138 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F97DE2991C74CD8D00AED138 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F97DE2A31C74CD8D00AED138 /* ViewController.swift in Sources */,
+				F97DE2A11C74CD8D00AED138 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F97DE2A41C74CD8D00AED138 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F97DE2A51C74CD8D00AED138 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F97DE2A91C74CD8D00AED138 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F97DE2AA1C74CD8D00AED138 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F97DE2AD1C74CD8D00AED138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F97DE2AE1C74CD8D00AED138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F97DE2B01C74CD8D00AED138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Voice Pimp Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JavidSheikh.Voice-Pimp-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F97DE2B11C74CD8D00AED138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Voice Pimp Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JavidSheikh.Voice-Pimp-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F97DE2981C74CD8D00AED138 /* Build configuration list for PBXProject "Voice Pimp Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F97DE2AD1C74CD8D00AED138 /* Debug */,
+				F97DE2AE1C74CD8D00AED138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F97DE2AF1C74CD8D00AED138 /* Build configuration list for PBXNativeTarget "Voice Pimp Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F97DE2B01C74CD8D00AED138 /* Debug */,
+				F97DE2B11C74CD8D00AED138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F97DE2951C74CD8D00AED138 /* Project object */;
+}
