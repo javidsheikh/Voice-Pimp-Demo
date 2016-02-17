@@ -127,6 +127,22 @@ class PlaySoundsViewController: UIViewController {
         setDistortionPreset(AVAudioUnitDistortionPreset.SpeechAlienChatter)
     }
     
+    @IBAction func playbackCosmic(sender: UIButton) {
+        setDistortionPreset(AVAudioUnitDistortionPreset.SpeechCosmicInterference)
+    }
+    
+    @IBAction func playbackGoldenPi(sender: UIButton) {
+        setDistortionPreset(AVAudioUnitDistortionPreset.SpeechGoldenPi)
+    }
+    
+    @IBAction func playbackRadio(sender: UIButton) {
+        setDistortionPreset(AVAudioUnitDistortionPreset.SpeechRadioTower)
+    }
+    
+    @IBAction func playbackWaves(sender: UIButton) {
+        setDistortionPreset(AVAudioUnitDistortionPreset.SpeechWaves)
+    }
+    
     @IBAction func stopPlayback(sender: UIButton) {
         engine.stop()
         engine.reset()
