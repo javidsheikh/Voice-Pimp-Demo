@@ -35,9 +35,75 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="jaX-xU-ZCU" kind="show" identifier="segueToPlaySoundsVC" id="CA7-oF-Tvp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Play Sounds View Controller-->
+        <scene sceneID="AaN-oV-ws7">
+            <objects>
+                <viewController id="jaX-xU-ZCU" customClass="PlaySoundsViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kza-ab-Kg9"/>
+                        <viewControllerLayoutGuide type="bottom" id="LAn-rz-ikV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Gi-lg-LBM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
+                                <rect key="frame" x="63" y="109" width="70" height="30"/>
+                                <state key="normal" title="Chipmunk"/>
+                                <connections>
+                                    <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
+                                <rect key="frame" x="81" y="198" width="35" height="30"/>
+                                <state key="normal" title="Echo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
+                                <rect key="frame" x="72" y="289" width="52" height="30"/>
+                                <state key="normal" title="Cosmic"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
+                                <rect key="frame" x="241" y="289" width="66" height="30"/>
+                                <state key="normal" title="Golden Pi"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
+                                <rect key="frame" x="257" y="198" width="34" height="30"/>
+                                <state key="normal" title="Alien"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
+                                <rect key="frame" x="79" y="391" width="39" height="30"/>
+                                <state key="normal" title="Radio"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
+                                <rect key="frame" x="252" y="391" width="45" height="30"/>
+                                <state key="normal" title="Waves"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47h-2a-XPm">
+                                <rect key="frame" x="171" y="506" width="32" height="30"/>
+                                <state key="normal" title="Stop"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
+                                <rect key="frame" x="254" y="109" width="40" height="30"/>
+                                <state key="normal" title="Vader"/>
+                                <connections>
+                                    <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYP-Gk-qpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1195.5" y="384.5"/>
         </scene>
     </scenes>
 </document>

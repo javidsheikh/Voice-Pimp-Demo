@@ -27,14 +27,19 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     // AudioRecorder delegate methods
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            recordedAudio = RecordedAudio(filePathString: "", title: "")
-            recordedAudio.filePathString = String(recorder.url)
+            recordedAudio = RecordedAudio(filePathURL: NSURL(fileURLWithPath: ""), title: "")
+            recordedAudio.filePathURL = recorder.url
             recordedAudio.title = recorder.url.lastPathComponent!
-            print(recorder.url)
-            print(recorder.url.lastPathComponent)
             self.performSegueWithIdentifier("segueToPlaySoundsVC", sender: self)
         } else {
             print("Recording was unsuccessful")
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToPlaySoundsVC" {
+            let controller = segue.destinationViewController as! PlaySoundsViewController
+            controller.receivedAudio = recordedAudio
         }
     }
     
