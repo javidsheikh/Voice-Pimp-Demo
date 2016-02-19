@@ -66,6 +66,7 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.filePathURL)
         self.documentInteractionController.delegate = self
         self.documentInteractionController.presentPreviewAnimated(true)
+        print(audioInstance.filePathURL)
     }
 
     /*

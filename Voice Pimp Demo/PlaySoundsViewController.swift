@@ -45,8 +45,6 @@ class PlaySoundsViewController: UIViewController {
         if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [RecordedAudio] {
             savedAudio = array
         }
-        
-        print(savedAudio)
 
         // Do any additional setup after loading the view.
         delayPlayer = AVAudioPlayerNode()
@@ -132,7 +130,6 @@ class PlaySoundsViewController: UIViewController {
         let recordingName = formatter.stringFromDate(currentDateTime) + ".caf"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)!
-        
         return filePath
     }
     
@@ -141,9 +138,7 @@ class PlaySoundsViewController: UIViewController {
         if mixerOutputFileURL == nil {
             mixerOutputFileURL = audioFileURL()
         }
-        
-        print(mixerOutputFileURL)
-        
+                
         let mainMixer = engine.mainMixerNode
         let mixerOutputFile: AVAudioFile
         do {
@@ -171,8 +166,6 @@ class PlaySoundsViewController: UIViewController {
             engine.mainMixerNode.removeTapOnBus(0)
             isRecording = false
         }
-        
-        print(mixerOutputFileURL)
     }
     
     func playRecordedFile() {
