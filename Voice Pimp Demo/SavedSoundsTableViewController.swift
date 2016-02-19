@@ -8,9 +8,11 @@
 
 import UIKit
 
-class SavedSoundsTableViewController: UITableViewController {
+class SavedSoundsTableViewController: UITableViewController, UIDocumentInteractionControllerDelegate {
     
     var savedAudio: [RecordedAudio]!
+    
+    var documentInteractionController: UIDocumentInteractionController!
     
     var filePath : String {
         let manager = NSFileManager.defaultManager()
@@ -33,6 +35,10 @@ class SavedSoundsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
 
     // MARK: - Table view data source
 
@@ -53,6 +59,13 @@ class SavedSoundsTableViewController: UITableViewController {
         cell.textLabel!.text = audioInstance.title
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let audioInstance = savedAudio[indexPath.row]
+        self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.filePathURL)
+        self.documentInteractionController.delegate = self
+        self.documentInteractionController.presentPreviewAnimated(true)
     }
 
     /*

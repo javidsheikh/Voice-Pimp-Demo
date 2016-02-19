@@ -124,11 +124,25 @@ class PlaySoundsViewController: UIViewController {
         }
     }
     
+    func audioFileURL() -> NSURL {
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let currentDateTime = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "ddMMyyyy-HHmmss"
+        let recordingName = formatter.stringFromDate(currentDateTime) + ".caf"
+        let pathArray = [dirPath, recordingName]
+        let filePath = NSURL.fileURLWithPathComponents(pathArray)!
+        
+        return filePath
+    }
+    
     func startRecordingMixerOutput() {
         // install a tap on the main mixer output bus and write output buffers to file
         if mixerOutputFileURL == nil {
-            mixerOutputFileURL = NSURL(string: NSTemporaryDirectory() + "mixerOutput.caf")
+            mixerOutputFileURL = audioFileURL()
         }
+        
+        print(mixerOutputFileURL)
         
         let mainMixer = engine.mainMixerNode
         let mixerOutputFile: AVAudioFile
@@ -157,6 +171,8 @@ class PlaySoundsViewController: UIViewController {
             engine.mainMixerNode.removeTapOnBus(0)
             isRecording = false
         }
+        
+        print(mixerOutputFileURL)
     }
     
     func playRecordedFile() {
