@@ -51,12 +51,6 @@ class PlaySoundsViewController: UIViewController {
         // Create an instance of the engine and attach the nodes
         self.createEngineAndAttachNodes()
         
-//        do {
-//            audioFile = try AVAudioFile(forReading: receivedAudio.filePathURL)
-//        } catch {
-//            print("Could not read recorded audio file")
-//        }
-        
         // Load audio loop
         let audioLoopURL = receivedAudio.filePathURL
         let audioLoopFile: AVAudioFile
@@ -190,107 +184,44 @@ class PlaySoundsViewController: UIViewController {
         mixerOutputFilePlayerIsPaused = true
     }
     
-//    // Function to set variable pitch
-//    func setVariablePitch(pitch: Float) {
-//        engine.stop()
-//        engine.reset()
-//        
-//        let audioPlayerNode = AVAudioPlayerNode()
-//        engine.attachNode(audioPlayerNode)
-//        
-//        let changePitchEffect = AVAudioUnitTimePitch()
-//        changePitchEffect.pitch = pitch
-//        engine.attachNode(changePitchEffect)
-//        
-//        engine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
-//        engine.connect(changePitchEffect, to: engine.outputNode, format: nil)
-//        
-//        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-//        
-//        do {
-//            try engine.start()
-//        } catch {
-//            print("Unable to start audio engine")
-//        }
-//        
-//        audioPlayerNode.play()
-//    }
-//    
-//    // Function to set variable delay
-//    func setVariableDelay(delay: Double) {
-//        engine.stop()
-//        engine.reset()
-//        
-//        let audioPlayerNode = AVAudioPlayerNode()
-//        engine.attachNode(audioPlayerNode)
-//        
-//        let changeDelayEffect = AVAudioUnitDelay()
-//        changeDelayEffect.delayTime = delay
-//        engine.attachNode(changeDelayEffect)
-//        
-//        engine.connect(audioPlayerNode, to: changeDelayEffect, format: nil)
-//        engine.connect(changeDelayEffect, to: engine.outputNode, format: nil)
-//        
-//        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-//        
-//        do {
-//            try engine.start()
-//        } catch {
-//            print("Unable to start audio engine")
-//        }
-//        
-//        audioPlayerNode.play()
-//    }
-//    
-//    // Function to set distortion preset
-//    func setDistortionPreset(preset: AVAudioUnitDistortionPreset) {
-//        engine.stop()
-//        engine.reset()
-//        
-//        let audioPlayerNode = AVAudioPlayerNode()
-//        engine.attachNode(audioPlayerNode)
-//        
-//        let addDistortionEffect = AVAudioUnitDistortion()
-//        addDistortionEffect.loadFactoryPreset(preset)
-//        engine.attachNode(addDistortionEffect)
-//        
-//        engine.connect(audioPlayerNode, to: addDistortionEffect, format: nil)
-//        engine.connect(addDistortionEffect, to: engine.outputNode, format: nil)
-//        
-//        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-//        
-//        do {
-//            try engine.start()
-//        } catch {
-//            print("Unable to start audio engine")
-//        }
-//        
-//        audioPlayerNode.play()
-//    }
-    
-    // IBActions
-    @IBAction func playbackChipmunk(sender: UIButton) {
+    func playbackPitch(pitchLevel: Float) {
         if !pitchPlayer.playing {
-            pitch.pitch = 1000
+            pitch.pitch = pitchLevel
             self.startEngine()
             pitchPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
             pitchPlayer.play()
-            sender.setTitle("Chipmunk Pause", forState: .Normal)
         } else {
             pitchPlayer.stop()
+            
+        }
+    }
+    
+    func playbackDistortion(distortionPreset: AVAudioUnitDistortionPreset) {
+        if !distortionPlayer.playing {
+            distortion.loadFactoryPreset(distortionPreset)
+            self.startEngine()
+            distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+            distortionPlayer.play()
+        } else {
+            distortionPlayer.stop()
+        }
+    }
+    
+    // IBActions
+    @IBAction func playbackChipmunk(sender: UIButton) {
+        playbackPitch(1000)
+        if !pitchPlayer.playing {
+            sender.setTitle("Chipmunk Pause", forState: .Normal)
+        } else {
             sender.setTitle("Chipmunk Play", forState: .Normal)
         }
     }
     
     @IBAction func playbackVader(sender: UIButton) {
+        playbackPitch(-1000)
         if !pitchPlayer.playing {
-            pitch.pitch = -1000
-            self.startEngine()
-            pitchPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            pitchPlayer.play()
             sender.setTitle("Vader Pause", forState: .Normal)
         } else {
-            pitchPlayer.stop()
             sender.setTitle("Vader Play", forState: .Normal)
         }
     }
@@ -309,74 +240,49 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func playbackAlien(sender: UIButton) {
+        playbackDistortion(.SpeechAlienChatter)
         if !distortionPlayer.playing {
-            distortion.loadFactoryPreset(.SpeechAlienChatter)
-            self.startEngine()
-            distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            distortionPlayer.play()
             sender.setTitle("Alien Pause", forState: .Normal)
         } else {
-            distortionPlayer.stop()
             sender.setTitle("Alien Play", forState: .Normal)
         }
     }
     
     @IBAction func playbackCosmic(sender: UIButton) {
+        playbackDistortion(.SpeechCosmicInterference)
         if !distortionPlayer.playing {
-            distortion.loadFactoryPreset(.SpeechCosmicInterference)
-            self.startEngine()
-            distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            distortionPlayer.play()
             sender.setTitle("Cosmic Pause", forState: .Normal)
         } else {
-            distortionPlayer.stop()
             sender.setTitle("Cosmic Play", forState: .Normal)
         }
     }
     
     @IBAction func playbackGoldenPi(sender: UIButton) {
+        playbackDistortion(.SpeechGoldenPi)
         if !distortionPlayer.playing {
-            distortion.loadFactoryPreset(.SpeechGoldenPi)
-            self.startEngine()
-            distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            distortionPlayer.play()
             sender.setTitle("Golden Pi Pause", forState: .Normal)
         } else {
-            distortionPlayer.stop()
             sender.setTitle("Golden Pi Play", forState: .Normal)
         }
     }
     
     @IBAction func playbackRadio(sender: UIButton) {
+        playbackDistortion(.SpeechRadioTower)
         if !distortionPlayer.playing {
-            distortion.loadFactoryPreset(.SpeechRadioTower)
-            self.startEngine()
-            distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            distortionPlayer.play()
             sender.setTitle("Radio Pause", forState: .Normal)
         } else {
-            distortionPlayer.stop()
             sender.setTitle("Radio Play", forState: .Normal)
         }
     }
     
     @IBAction func playbackWaves(sender: UIButton) {
+        playbackDistortion(.SpeechWaves)
         if !distortionPlayer.playing {
-            distortion.loadFactoryPreset(.SpeechWaves)
-            self.startEngine()
-            distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            distortionPlayer.play()
             sender.setTitle("Waves Pause", forState: .Normal)
         } else {
-            distortionPlayer.stop()
             sender.setTitle("Waves Play", forState: .Normal)
         }
     }
-    
-//    @IBAction func stopPlayback(sender: UIButton) {
-//        engine.stop()
-//        engine.reset()
-//    }
 
     @IBAction func recordMixerOutput(sender: UIButton) {
         // recording stops playback and recording if we are already recording
