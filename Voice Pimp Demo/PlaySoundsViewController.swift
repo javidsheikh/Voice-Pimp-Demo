@@ -337,16 +337,16 @@ class PlaySoundsViewController: UIViewController {
         savedAudio.insert(newSavedAudio, atIndex: 0)
         
         NSKeyedArchiver.archiveRootObject(savedAudio, toFile: filePath)
+        
+        self.performSegueWithIdentifier("segueToSavedSoundsTableVC", sender: self)
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "segueToSavedSoundsTableVC"{
+            let controller = segue.destinationViewController as! SavedSoundsTableViewController
+            controller.savedAudio = savedAudio
+        }
     }
-    */
 
 }
