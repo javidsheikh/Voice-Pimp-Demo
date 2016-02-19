@@ -127,7 +127,7 @@ class PlaySoundsViewController: UIViewController {
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime) + ".caf"
+        let recordingName = formatter.stringFromDate(currentDateTime) + ".mp4"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)!
         return filePath
@@ -141,8 +141,16 @@ class PlaySoundsViewController: UIViewController {
                 
         let mainMixer = engine.mainMixerNode
         let mixerOutputFile: AVAudioFile
+        // Recording settings
+        let recordSettings:[String : AnyObject] = [
+            AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatMPEG4AAC),
+            AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
+            AVEncoderBitRateKey : 320000,
+            AVNumberOfChannelsKey: 2,
+            AVSampleRateKey : 44100.0
+        ]
         do {
-            mixerOutputFile = try AVAudioFile(forWriting: mixerOutputFileURL!, settings: mainMixer.outputFormatForBus(0).settings)
+            mixerOutputFile = try AVAudioFile(forWriting: mixerOutputFileURL!, settings: recordSettings)
         } catch let error as NSError {
             fatalError("mixerOutputFile is nil, \(error.localizedDescription)")
         }
