@@ -112,18 +112,25 @@
                                     <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB8-n5-3nA">
-                                <rect key="frame" x="157" y="539" width="62" height="30"/>
-                                <state key="normal" title="Playback"/>
-                                <connections>
-                                    <action selector="playbackMixerOutput:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="gm2-Fs-I0I"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47h-2a-XPm">
                                 <rect key="frame" x="163" y="472" width="49" height="30"/>
                                 <state key="normal" title="Record"/>
                                 <connections>
                                     <action selector="recordMixerOutput:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="UbG-4H-map"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhP-2o-26M">
+                                <rect key="frame" x="170" y="594" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveMixerOutput:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="FQY-QV-8vB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB8-n5-3nA">
+                                <rect key="frame" x="156" y="534" width="62" height="30"/>
+                                <state key="normal" title="Playback"/>
+                                <connections>
+                                    <action selector="playbackMixerOutput:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="gm2-Fs-I0I"/>
                                 </connections>
                             </button>
                         </subviews>

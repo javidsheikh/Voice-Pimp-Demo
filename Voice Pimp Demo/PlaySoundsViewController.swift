@@ -11,6 +11,8 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
     
+    var savedAudio = [RecordedAudio]()
+    
     var receivedAudio: RecordedAudio!
     
     var engine: AVAudioEngine!
@@ -30,9 +32,21 @@ class PlaySoundsViewController: UIViewController {
     var recording: Bool = false
     var playing: Bool = false
     var canPlayback: Bool = false
+    
+    var filePath : String {
+        let manager = NSFileManager.defaultManager()
+        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! as NSURL
+        return url.URLByAppendingPathComponent("savedAudioArray").path!
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [RecordedAudio] {
+            savedAudio = array
+        }
+        
+        print(savedAudio)
 
         // Do any additional setup after loading the view.
         delayPlayer = AVAudioPlayerNode()
@@ -312,6 +326,18 @@ class PlaySoundsViewController: UIViewController {
         }
     }
     
+    @IBAction func saveMixerOutput(sender: UIButton) {
+        let newSavedAudio = RecordedAudio(filePathURL: NSURL(fileURLWithPath: ""), title: "")
+        newSavedAudio.filePathURL = mixerOutputFileURL!
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "ddMMyyyy-HHmmss"
+        let title = formatter.stringFromDate(NSDate())
+        newSavedAudio.title = title
+        
+        savedAudio.insert(newSavedAudio, atIndex: 0)
+        
+        NSKeyedArchiver.archiveRootObject(savedAudio, toFile: filePath)
+    }
 
     /*
     // MARK: - Navigation
