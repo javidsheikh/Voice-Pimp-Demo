@@ -344,6 +344,18 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func saveMixerOutput(sender: UIButton) {
+        // Configure alert popup
+        let alert = UIAlertController(title: "Save", message: "Add file to saved audio notes", preferredStyle: .Alert)
+        let saveAction = UIAlertAction(title: "Save", style: .Default) { (action) -> Void in
+            self.saveNewAudio()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func saveNewAudio() {
         let newSavedAudio = RecordedAudio(filePathURL: NSURL(fileURLWithPath: ""), title: "")
         
         newSavedAudio.filePathURL = mixerOutputFileURL!
