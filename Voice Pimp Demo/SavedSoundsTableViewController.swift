@@ -65,7 +65,8 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         let audioInstance = savedAudio[indexPath.row]
         self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.filePathURL)
         self.documentInteractionController.delegate = self
-        self.documentInteractionController.presentPreviewAnimated(true)
+//        self.documentInteractionController.presentPreviewAnimated(true)
+        self.documentInteractionController.presentOpenInMenuFromRect(CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2, width: 300, height: 300), inView: self.view, animated: true)
         print(audioInstance.filePathURL)
     }
 

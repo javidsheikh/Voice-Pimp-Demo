@@ -127,7 +127,7 @@ class PlaySoundsViewController: UIViewController {
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime) + ".mp4"
+        let recordingName = formatter.stringFromDate(currentDateTime) + ".mp4.waa"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)!
         return filePath
@@ -345,7 +345,10 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func saveMixerOutput(sender: UIButton) {
         let newSavedAudio = RecordedAudio(filePathURL: NSURL(fileURLWithPath: ""), title: "")
+        
         newSavedAudio.filePathURL = mixerOutputFileURL!
+        print(newSavedAudio.filePathURL)
+        
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
         let title = formatter.stringFromDate(NSDate())
