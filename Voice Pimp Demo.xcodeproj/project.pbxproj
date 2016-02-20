@@ -15,6 +15,8 @@
 		F97DE2B31C74DD2700AED138 /* Recorded Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE2B21C74DD2700AED138 /* Recorded Audio.swift */; };
 		F97DE2B71C74E7E800AED138 /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE2B61C74E7E800AED138 /* PlaySoundsViewController.swift */; };
 		F9C467C21C7778A5004B21EE /* SavedSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C467C11C7778A5004B21EE /* SavedSoundsTableViewController.swift */; };
+		F9FDC0DC1C78B9D600457D7C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDC0DB1C78B9D600457D7C /* TableViewCell.swift */; };
+		F9FDC0DE1C78BC2A00457D7C /* megaphone-clip-art.png in Resources */ = {isa = PBXBuildFile; fileRef = F9FDC0DD1C78BC2A00457D7C /* megaphone-clip-art.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		F97DE2B21C74DD2700AED138 /* Recorded Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recorded Audio.swift"; sourceTree = "<group>"; };
 		F97DE2B61C74E7E800AED138 /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 		F9C467C11C7778A5004B21EE /* SavedSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedSoundsTableViewController.swift; sourceTree = "<group>"; };
+		F9FDC0DB1C78B9D600457D7C /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F9FDC0DD1C78BC2A00457D7C /* megaphone-clip-art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "megaphone-clip-art.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +68,11 @@
 				F97DE2A21C74CD8D00AED138 /* RecordSoundsViewController.swift */,
 				F97DE2B61C74E7E800AED138 /* PlaySoundsViewController.swift */,
 				F9C467C11C7778A5004B21EE /* SavedSoundsTableViewController.swift */,
+				F9FDC0DB1C78B9D600457D7C /* TableViewCell.swift */,
+				F97DE2B21C74DD2700AED138 /* Recorded Audio.swift */,
 				F97DE2A41C74CD8D00AED138 /* Main.storyboard */,
 				F97DE2A71C74CD8D00AED138 /* Assets.xcassets */,
-				F97DE2B21C74DD2700AED138 /* Recorded Audio.swift */,
+				F9FDC0DD1C78BC2A00457D7C /* megaphone-clip-art.png */,
 				F97DE2A91C74CD8D00AED138 /* LaunchScreen.storyboard */,
 				F97DE2AC1C74CD8D00AED138 /* Info.plist */,
 			);
@@ -133,6 +139,7 @@
 			files = (
 				F97DE2AB1C74CD8D00AED138 /* LaunchScreen.storyboard in Resources */,
 				F97DE2A81C74CD8D00AED138 /* Assets.xcassets in Resources */,
+				F9FDC0DE1C78BC2A00457D7C /* megaphone-clip-art.png in Resources */,
 				F97DE2A61C74CD8D00AED138 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +154,7 @@
 				F97DE2A31C74CD8D00AED138 /* RecordSoundsViewController.swift in Sources */,
 				F9C467C21C7778A5004B21EE /* SavedSoundsTableViewController.swift in Sources */,
 				F97DE2B31C74DD2700AED138 /* Recorded Audio.swift in Sources */,
+				F9FDC0DC1C78B9D600457D7C /* TableViewCell.swift in Sources */,
 				F97DE2B71C74E7E800AED138 /* PlaySoundsViewController.swift in Sources */,
 				F97DE2A11C74CD8D00AED138 /* AppDelegate.swift in Sources */,
 			);
