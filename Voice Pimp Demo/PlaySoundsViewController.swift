@@ -127,7 +127,7 @@ class PlaySoundsViewController: UIViewController {
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime) + ".mp4.waa"
+        let recordingName = formatter.stringFromDate(currentDateTime) + ".mp4"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)!
         return filePath

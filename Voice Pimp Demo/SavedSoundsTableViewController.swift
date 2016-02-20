@@ -67,6 +67,9 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         cell.cellTitle.text = audioInstance.title
         cell.cellDate.text = audioInstance.date
         
+        cell.playButton.tag = indexPath.row
+        cell.playButton.addTarget(self, action: "presentPlayController:", forControlEvents: .TouchUpInside)
+        
         cell.shareButton.tag = indexPath.row
         cell.shareButton.addTarget(self, action: "presentShareController:", forControlEvents: .TouchUpInside)
 
@@ -82,10 +85,19 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
 //        print(audioInstance.filePathURL)
 //    }
     
-    @IBAction func presentShareController(sender: UIButton) {
-        print("pressed")
+    @IBAction func presentPlayController(sender: UIButton) {
         let audioInstance = self.savedAudio[sender.tag] as RecordedAudio
         self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.filePathURL)
+        self.documentInteractionController.delegate = self
+        self.documentInteractionController.presentPreviewAnimated(true)
+    }
+    
+    @IBAction func presentShareController(sender: UIButton) {
+        let audioInstance = self.savedAudio[sender.tag] as RecordedAudio
+        let waaString = String(audioInstance.filePathURL) + ".waa"
+        let waaURL = NSURL(string: waaString)!
+        print(waaURL)
+        self.documentInteractionController = UIDocumentInteractionController(URL: waaURL)
         self.documentInteractionController.delegate = self
         self.documentInteractionController.presentOpenInMenuFromRect(CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2, width: 300, height: 300), inView: self.view, animated: true)
     }
