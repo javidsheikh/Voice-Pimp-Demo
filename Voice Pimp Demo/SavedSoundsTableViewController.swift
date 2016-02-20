@@ -57,6 +57,7 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         cell.cellImage.image = UIImage(named: "megaphone-clip-art.png")
         let audioInstance = savedAudio[indexPath.row]
         cell.cellTitle.text = audioInstance.title
+        cell.cellDate.text = audioInstance.date
 
         return cell
     }

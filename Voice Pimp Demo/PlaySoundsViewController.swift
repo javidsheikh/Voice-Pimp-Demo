@@ -370,6 +370,11 @@ class PlaySoundsViewController: UIViewController {
 //        let title = formatter.stringFromDate(NSDate())
         newSavedAudio.title = title
         
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy - HH:mm"
+        let formattedDate = formatter.stringFromDate(NSDate())
+        newSavedAudio.date = formattedDate
+        
         savedAudio.insert(newSavedAudio, atIndex: 0)
         
         NSKeyedArchiver.archiveRootObject(savedAudio, toFile: filePath)
