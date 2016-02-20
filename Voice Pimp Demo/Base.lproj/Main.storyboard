@@ -190,6 +190,8 @@
                                     <outlet property="cellDate" destination="NPa-ss-UHx" id="1ec-1b-RJU"/>
                                     <outlet property="cellImage" destination="0wD-Dq-Lwv" id="lx4-43-8QQ"/>
                                     <outlet property="cellTitle" destination="tpv-2y-Nc9" id="Cz5-Mk-Rh4"/>
+                                    <outlet property="playButton" destination="7JZ-kd-zXw" id="Hdl-bZ-PI5"/>
+                                    <outlet property="shareButton" destination="V5J-15-Rr1" id="ei7-wW-Mzf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

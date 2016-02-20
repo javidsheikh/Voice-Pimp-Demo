@@ -24,6 +24,10 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDate: UILabel!
-    
 
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    
+    
+    
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class SavedSoundsTableViewController: UITableViewController, UIDocumentInteractionControllerDelegate {
-    
+        
     var savedAudio: [RecordedAudio]!
     
     var documentInteractionController: UIDocumentInteractionController!
@@ -66,17 +66,28 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         let audioInstance = savedAudio[indexPath.row]
         cell.cellTitle.text = audioInstance.title
         cell.cellDate.text = audioInstance.date
+        
+        cell.shareButton.tag = indexPath.row
+        cell.shareButton.addTarget(self, action: "presentShareController:", forControlEvents: .TouchUpInside)
 
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let audioInstance = savedAudio[indexPath.row]
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let audioInstance = savedAudio[indexPath.row]
+//        self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.filePathURL)
+//        self.documentInteractionController.delegate = self
+////        self.documentInteractionController.presentPreviewAnimated(true)
+//        self.documentInteractionController.presentOpenInMenuFromRect(CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2, width: 300, height: 300), inView: self.view, animated: true)
+//        print(audioInstance.filePathURL)
+//    }
+    
+    @IBAction func presentShareController(sender: UIButton) {
+        print("pressed")
+        let audioInstance = self.savedAudio[sender.tag] as RecordedAudio
         self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.filePathURL)
         self.documentInteractionController.delegate = self
-//        self.documentInteractionController.presentPreviewAnimated(true)
         self.documentInteractionController.presentOpenInMenuFromRect(CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2, width: 300, height: 300), inView: self.view, animated: true)
-        print(audioInstance.filePathURL)
     }
 
     /*
