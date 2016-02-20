@@ -27,8 +27,10 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
+        let popToRecordVCButton = UIBarButtonItem(title: "Record", style: .Plain, target: self, action: Selector("popToRecordVC"))
+        self.navigationItem.rightBarButtonItem = popToRecordVCButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +40,10 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
     
     func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
         return self
+    }
+    
+    func popToRecordVC() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
     // MARK: - Table view data source
