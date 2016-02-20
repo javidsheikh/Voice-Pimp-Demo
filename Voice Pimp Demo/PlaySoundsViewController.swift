@@ -346,8 +346,13 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func saveMixerOutput(sender: UIButton) {
         // Configure alert popup
         let alert = UIAlertController(title: "Save", message: "Add file to saved audio notes", preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = "Enter title for audio note"
+        }
         let saveAction = UIAlertAction(title: "Save", style: .Default) { (action) -> Void in
-            self.saveNewAudio()
+            let textField = alert.textFields![0] as UITextField
+            let title = textField.text!
+            self.saveNewAudio(title)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alert.addAction(saveAction)
@@ -355,15 +360,14 @@ class PlaySoundsViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func saveNewAudio() {
+    func saveNewAudio(title: String) {
         let newSavedAudio = RecordedAudio(filePathURL: NSURL(fileURLWithPath: ""), title: "")
         
         newSavedAudio.filePathURL = mixerOutputFileURL!
-        print(newSavedAudio.filePathURL)
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let title = formatter.stringFromDate(NSDate())
+
+//        let formatter = NSDateFormatter()
+//        formatter.dateFormat = "ddMMyyyy-HHmmss"
+//        let title = formatter.stringFromDate(NSDate())
         newSavedAudio.title = title
         
         savedAudio.insert(newSavedAudio, atIndex: 0)
