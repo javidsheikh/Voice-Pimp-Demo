@@ -242,18 +242,18 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func playbackChipmunk(sender: UIButton) {
         playbackPitch(1000)
         if !pitchPlayer.playing {
-            sender.setTitle("Chipmunk Pause", forState: .Normal)
-        } else {
             sender.setTitle("Chipmunk Play", forState: .Normal)
+        } else {
+            sender.setTitle("Chipmunk Pause", forState: .Normal)
         }
     }
     
     @IBAction func playbackVader(sender: UIButton) {
         playbackPitch(-1000)
         if !pitchPlayer.playing {
-            sender.setTitle("Vader Pause", forState: .Normal)
-        } else {
             sender.setTitle("Vader Play", forState: .Normal)
+        } else {
+            sender.setTitle("Vader Pause", forState: .Normal)
         }
     }
     
@@ -263,55 +263,55 @@ class PlaySoundsViewController: UIViewController {
             self.startEngine()
             delayPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
             delayPlayer.play()
-            sender.setTitle("Echo Pause", forState: .Normal)
+            sender.setTitle("Echo Play", forState: .Normal)
         } else {
             delayPlayer.stop()
-            sender.setTitle("Echo Play", forState: .Normal)
+            sender.setTitle("Echo Pause", forState: .Normal)
         }
     }
 
     @IBAction func playbackAlien(sender: UIButton) {
         playbackDistortion(.SpeechAlienChatter)
         if !distortionPlayer.playing {
-            sender.setTitle("Alien Pause", forState: .Normal)
-        } else {
             sender.setTitle("Alien Play", forState: .Normal)
+        } else {
+            sender.setTitle("Alien Pause", forState: .Normal)
         }
     }
     
     @IBAction func playbackCosmic(sender: UIButton) {
         playbackDistortion(.SpeechCosmicInterference)
         if !distortionPlayer.playing {
-            sender.setTitle("Cosmic Pause", forState: .Normal)
-        } else {
             sender.setTitle("Cosmic Play", forState: .Normal)
+        } else {
+            sender.setTitle("Cosmic Pause", forState: .Normal)
         }
     }
     
     @IBAction func playbackGoldenPi(sender: UIButton) {
         playbackDistortion(.SpeechGoldenPi)
         if !distortionPlayer.playing {
-            sender.setTitle("Golden Pi Pause", forState: .Normal)
-        } else {
             sender.setTitle("Golden Pi Play", forState: .Normal)
+        } else {
+            sender.setTitle("Golden Pi Pause", forState: .Normal)
         }
     }
     
     @IBAction func playbackRadio(sender: UIButton) {
         playbackDistortion(.SpeechRadioTower)
         if !distortionPlayer.playing {
-            sender.setTitle("Radio Pause", forState: .Normal)
-        } else {
             sender.setTitle("Radio Play", forState: .Normal)
+        } else {
+            sender.setTitle("Radio Pause", forState: .Normal)
         }
     }
     
     @IBAction func playbackWaves(sender: UIButton) {
         playbackDistortion(.SpeechWaves)
         if !distortionPlayer.playing {
-            sender.setTitle("Waves Pause", forState: .Normal)
-        } else {
             sender.setTitle("Waves Play", forState: .Normal)
+        } else {
+            sender.setTitle("Waves Pause", forState: .Normal)
         }
     }
 
