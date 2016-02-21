@@ -356,6 +356,7 @@ class PlaySoundsViewController: UIViewController {
         let alert = UIAlertController(title: "Save", message: "Add file to saved audio notes", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
             textField.placeholder = "Enter title for audio note"
+            textField.autocapitalizationType = .Words
         }
         let saveAction = UIAlertAction(title: "Save", style: .Default) { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
@@ -374,13 +375,7 @@ class PlaySoundsViewController: UIViewController {
         newSavedAudio.mp4URL = mixerOutputFileURL!
 
         newSavedAudio.waaURL = waaMixerOutputFileURL!
-        
-        print(newSavedAudio.mp4URL)
-        print(newSavedAudio.waaURL)
 
-//        let formatter = NSDateFormatter()
-//        formatter.dateFormat = "ddMMyyyy-HHmmss"
-//        let title = formatter.stringFromDate(NSDate())
         newSavedAudio.title = title
         
         let formatter = NSDateFormatter()
