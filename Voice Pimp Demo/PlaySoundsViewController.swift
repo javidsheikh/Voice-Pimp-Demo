@@ -25,6 +25,7 @@ class PlaySoundsViewController: UIViewController {
     var loopBuffer: AVAudioPCMBuffer!
     
     var mixerOutputFileURL: NSURL?
+    var waaMixerOutputFileURL: NSURL?
     var mixerOutputFilePlayer: AVAudioPlayerNode!
     var mixerOutputFilePlayerIsPaused: Bool = true
     var isRecording: Bool = false
@@ -64,7 +65,7 @@ class PlaySoundsViewController: UIViewController {
         self.createEngineAndAttachNodes()
         
         // Load audio loop
-        let audioLoopURL = receivedAudio.filePathURL
+        let audioLoopURL = receivedAudio.mp4URL
         let audioLoopFile: AVAudioFile
         do {
             audioLoopFile = try AVAudioFile(forReading: audioLoopURL)
@@ -133,14 +134,30 @@ class PlaySoundsViewController: UIViewController {
         return filePath
     }
     
+    func waaFileURL() -> NSURL {
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let currentDateTime = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "ddMMyyyy-HHmmss"
+        let recordingName = formatter.stringFromDate(currentDateTime) + ".mp4.waa"
+        let pathArray = [dirPath, recordingName]
+        let filePath = NSURL.fileURLWithPathComponents(pathArray)!
+        return filePath
+    }
+    
     func startRecordingMixerOutput() {
         // install a tap on the main mixer output bus and write output buffers to file
         if mixerOutputFileURL == nil {
             mixerOutputFileURL = audioFileURL()
         }
+        
+        if waaMixerOutputFileURL == nil {
+            waaMixerOutputFileURL = waaFileURL()
+        }
                 
         let mainMixer = engine.mainMixerNode
         let mixerOutputFile: AVAudioFile
+        let waaMixerOutputFile: AVAudioFile
         // Recording settings
         let recordSettings:[String : AnyObject] = [
             AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatMPEG4AAC),
@@ -151,6 +168,7 @@ class PlaySoundsViewController: UIViewController {
         ]
         do {
             mixerOutputFile = try AVAudioFile(forWriting: mixerOutputFileURL!, settings: recordSettings)
+            waaMixerOutputFile = try AVAudioFile(forWriting: waaMixerOutputFileURL!, settings: recordSettings)
         } catch let error as NSError {
             fatalError("mixerOutputFile is nil, \(error.localizedDescription)")
         }
@@ -159,6 +177,7 @@ class PlaySoundsViewController: UIViewController {
         mainMixer.installTapOnBus(0, bufferSize: 4096, format: mainMixer.outputFormatForBus(0)) {buffer, when in
             do {
                 try mixerOutputFile.writeFromBuffer(buffer)
+                try waaMixerOutputFile.writeFromBuffer(buffer)
             } catch let error as NSError {
                 fatalError("error writing buffer data to file, \(error.localizedDescription)")
             } catch _ {
@@ -361,9 +380,14 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func saveNewAudio(title: String) {
-        let newSavedAudio = RecordedAudio(filePathURL: NSURL(fileURLWithPath: ""), title: "")
+        let newSavedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), waaURL: NSURL(fileURLWithPath: ""), title: "", date: "")
         
-        newSavedAudio.filePathURL = mixerOutputFileURL!
+        newSavedAudio.mp4URL = mixerOutputFileURL!
+
+        newSavedAudio.waaURL = waaMixerOutputFileURL!
+        
+        print(newSavedAudio.mp4URL)
+        print(newSavedAudio.waaURL)
 
 //        let formatter = NSDateFormatter()
 //        formatter.dateFormat = "ddMMyyyy-HHmmss"
