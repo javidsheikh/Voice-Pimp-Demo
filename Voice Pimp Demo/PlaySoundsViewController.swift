@@ -123,23 +123,12 @@ class PlaySoundsViewController: UIViewController {
         }
     }
     
-    func audioFileURL() -> NSURL {
+    func audioFileURL(fileExtension: String) -> NSURL {
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime) + ".mp4"
-        let pathArray = [dirPath, recordingName]
-        let filePath = NSURL.fileURLWithPathComponents(pathArray)!
-        return filePath
-    }
-    
-    func waaFileURL() -> NSURL {
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let currentDateTime = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime) + ".mp4.waa"
+        let recordingName = formatter.stringFromDate(currentDateTime) + fileExtension
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)!
         return filePath
@@ -148,11 +137,11 @@ class PlaySoundsViewController: UIViewController {
     func startRecordingMixerOutput() {
         // install a tap on the main mixer output bus and write output buffers to file
         if mixerOutputFileURL == nil {
-            mixerOutputFileURL = audioFileURL()
+            mixerOutputFileURL = audioFileURL(".mp4")
         }
         
         if waaMixerOutputFileURL == nil {
-            waaMixerOutputFileURL = waaFileURL()
+            waaMixerOutputFileURL = audioFileURL(".mp4.waa")
         }
                 
         let mainMixer = engine.mainMixerNode
