@@ -11,6 +11,10 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
     
+    enum ActivePlayer {
+        case DelayPlayer, PitchPlayer, DistortionPlayer, VarispeedPlayer, None
+    }
+    
     var savedAudio = [RecordedAudio]()
     
     var receivedAudio: RecordedAudio!
@@ -28,13 +32,9 @@ class PlaySoundsViewController: UIViewController {
     
     var mixerOutputFileURL: NSURL?
     var waaMixerOutputFileURL: NSURL?
-    var mixerOutputFilePlayer: AVAudioPlayerNode!
-    var mixerOutputFilePlayerIsPaused: Bool = true
     var isRecording: Bool = false
     
-    var recording: Bool = false
-    var playing: Bool = false
-    var canPlayback: Bool = false
+    var activePlayer = ActivePlayer.None
     
     var filePath : String {
         let manager = NSFileManager.defaultManager()
@@ -60,8 +60,6 @@ class PlaySoundsViewController: UIViewController {
         varispeed = AVAudioUnitVarispeed()
         engine = AVAudioEngine()
         
-        mixerOutputFilePlayer = AVAudioPlayerNode()
-        mixerOutputFilePlayerIsPaused = false
         mixerOutputFileURL = nil
         isRecording = false
         
@@ -101,7 +99,7 @@ class PlaySoundsViewController: UIViewController {
         engine.attachNode(pitch)
         engine.attachNode(distortion)
         engine.attachNode(varispeed)
-        engine.attachNode(mixerOutputFilePlayer)
+//        engine.attachNode(mixerOutputFilePlayer)
     }
     
     func makeEngineConnections() {
@@ -118,8 +116,6 @@ class PlaySoundsViewController: UIViewController {
         
         engine.connect(varispeedPlayer, to: varispeed, format: loopBuffer.format)
         engine.connect(varispeed, to: mainMixer, format: loopBuffer.format)
-        
-        engine.connect(mixerOutputFilePlayer, to: mainMixer, format: mainMixer.outputFormatForBus(0))
     }
     
     func startEngine() {
@@ -193,185 +189,100 @@ class PlaySoundsViewController: UIViewController {
         }
     }
     
-    func playRecordedFile() {
-        self.startEngine()
-        if mixerOutputFilePlayerIsPaused {
-            mixerOutputFilePlayer.play()
-        } else {
-            if mixerOutputFileURL != nil {
-                let recordedFile: AVAudioFile
-                do {
-                    recordedFile = try AVAudioFile(forReading: mixerOutputFileURL!)
-                } catch let error as NSError {
-                    fatalError("recordedFile is nil, \(error.localizedDescription)")
-                }
-                mixerOutputFilePlayer.scheduleFile(recordedFile, atTime: nil) {
-                    self.mixerOutputFilePlayerIsPaused = false
-                    
-                    // the data in the file has been scheduled but the player isn't actually done playing yet
-                    // calculate the approximate time remaining for the player to finish playing and then dispatch the notification to the main thread
-                    let playerTime = self.mixerOutputFilePlayer.playerTimeForNodeTime(self.mixerOutputFilePlayer.lastRenderTime!)
-                    let delayInSecs = Double(recordedFile.length - playerTime!.sampleTime) / recordedFile.processingFormat.sampleRate
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSecs) * Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) {
-                        self.mixerOutputFilePlayer.stop()
-                    }
-                }
-                mixerOutputFilePlayer.play()
-                mixerOutputFilePlayerIsPaused = false
-            }
-        }
-    }
-    
-    func stopPlayingRecordedFile() {
-        mixerOutputFilePlayer.stop()
-        mixerOutputFilePlayerIsPaused = false
-    }
-    
-    func pausePlayingRecordedFile() {
-        mixerOutputFilePlayer.pause()
-        mixerOutputFilePlayerIsPaused = true
-    }
-    
     func playbackPitch(pitchLevel: Float) {
-        if !pitchPlayer.playing {
-            pitch.pitch = pitchLevel
-            self.startEngine()
-            pitchPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            pitchPlayer.play()
-        } else {
-            pitchPlayer.stop()
-            
-        }
+        stopActivePlayer()
+        activePlayer = .PitchPlayer
+        pitch.pitch = pitchLevel
+        self.startEngine()
+        pitchPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+        pitchPlayer.play()
+        startRecordingMixerOutput()
+    }
+    
+    func playbackDelay(delayLevel: Double) {
+        stopActivePlayer()
+        activePlayer = .DelayPlayer
+        delay.delayTime = delayLevel
+        self.startEngine()
+        delayPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+        delayPlayer.play()
+        startRecordingMixerOutput()
     }
     
     func playbackDistortion(distortionPreset: AVAudioUnitDistortionPreset) {
-        if !distortionPlayer.playing {
-            distortion.loadFactoryPreset(distortionPreset)
-            self.startEngine()
-            distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            distortionPlayer.play()
-        } else {
-            distortionPlayer.stop()
-        }
+        stopActivePlayer()
+        activePlayer = .DistortionPlayer
+        distortion.loadFactoryPreset(distortionPreset)
+        self.startEngine()
+        distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+        distortionPlayer.play()
+        startRecordingMixerOutput()
     }
     
     func playbackVarispeed(varispeedLevel: Float) {
-        if !varispeedPlayer.playing {
-            varispeed.rate = varispeedLevel
-            self.startEngine()
-            varispeedPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            varispeedPlayer.play()
-        } else {
-            varispeedPlayer.stop()
-        }
+        stopActivePlayer()
+        activePlayer = .VarispeedPlayer
+        varispeed.rate = varispeedLevel
+        self.startEngine()
+        varispeedPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+        varispeedPlayer.play()
+        startRecordingMixerOutput()
     }
     
     // IBActions
     @IBAction func playbackChipmunk(sender: UIButton) {
         playbackPitch(800)
-        if !pitchPlayer.playing {
-            sender.setTitle("Chipmunk Play", forState: .Normal)
-        } else {
-            sender.setTitle("Chipmunk Pause", forState: .Normal)
-        }
     }
     
     @IBAction func playbackVader(sender: UIButton) {
         playbackPitch(-800)
-        if !pitchPlayer.playing {
-            sender.setTitle("Vader Play", forState: .Normal)
-        } else {
-            sender.setTitle("Vader Pause", forState: .Normal)
-        }
     }
     
     @IBAction func playbackEcho(sender: UIButton) {
-        if !delayPlayer.playing {
-            delay.delayTime = 1.5
-            self.startEngine()
-            delayPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
-            delayPlayer.play()
-            sender.setTitle("Echo Play", forState: .Normal)
-        } else {
-            delayPlayer.stop()
-            sender.setTitle("Echo Pause", forState: .Normal)
-        }
+        playbackDelay(1.5)
     }
 
     @IBAction func playbackAlien(sender: UIButton) {
         playbackDistortion(.MultiCellphoneConcert)
-        if !distortionPlayer.playing {
-            sender.setTitle("Alien Play", forState: .Normal)
-        } else {
-            sender.setTitle("Alien Pause", forState: .Normal)
-        }
     }
     
     @IBAction func playbackCosmic(sender: UIButton) {
         playbackDistortion(.SpeechCosmicInterference)
-        if !distortionPlayer.playing {
-            sender.setTitle("Cosmic Play", forState: .Normal)
-        } else {
-            sender.setTitle("Cosmic Pause", forState: .Normal)
-        }
     }
     
     @IBAction func playbackGoldenPi(sender: UIButton) {
         playbackDistortion(.MultiEverythingIsBroken)
-        if !distortionPlayer.playing {
-            sender.setTitle("Golden Pi Play", forState: .Normal)
-        } else {
-            sender.setTitle("Golden Pi Pause", forState: .Normal)
-        }
     }
     
     @IBAction func playbackRadio(sender: UIButton) {
         playbackVarispeed(2.0)
-        if !varispeedPlayer.playing {
-            sender.setTitle("Hare Play", forState: .Normal)
-        } else {
-            sender.setTitle("Hare Pause", forState: .Normal)
-        }
     }
     
     @IBAction func playbackWaves(sender: UIButton) {
         playbackVarispeed(0.7)
-        if !varispeedPlayer.playing {
-            sender.setTitle("Tortoise Play", forState: .Normal)
-        } else {
-            sender.setTitle("Tortoise Pause", forState: .Normal)
-        }
+
     }
 
-    @IBAction func recordMixerOutput(sender: UIButton) {
-        // recording stops playback and recording if we are already recording
-        playing = false
-        recording = !recording
-        canPlayback = true
-        
-        stopPlayingRecordedFile()
-        if recording {
-            startRecordingMixerOutput()
-            sender.setTitle("Stop", forState: .Normal)
-        } else {
-            stopRecordingMixerOutput()
-            sender.setTitle("Record", forState: .Normal)
-        }
-    }
-    
-    @IBAction func playbackMixerOutput(sender: UIButton) {
-        recording = false
-        playing = !playing
+    func stopActivePlayer() {
         
         stopRecordingMixerOutput()
-        if playing {
-            playRecordedFile()
-        } else {
-            pausePlayingRecordedFile()
+        
+        switch activePlayer {
+        case .PitchPlayer: pitchPlayer.stop()
+        case .DelayPlayer: delayPlayer.stop()
+        case .DistortionPlayer: distortionPlayer.stop()
+        case .VarispeedPlayer: varispeedPlayer.stop()
+        default: break
         }
+        
+        self.engine.stop()
+        self.engine.reset()
     }
     
-    @IBAction func saveMixerOutput(sender: UIButton) {
+    @IBAction func stopPlaybackRecord(sender: AnyObject) {
+        
+        stopActivePlayer()
+        
         // Configure alert popup
         let alert = UIAlertController(title: "Save", message: "Add file to saved audio notes", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
@@ -388,7 +299,7 @@ class PlaySoundsViewController: UIViewController {
         alert.addAction(cancelAction)
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
+
     func saveNewAudio(title: String) {
         let newSavedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), waaURL: NSURL(fileURLWithPath: ""), title: "", date: "")
         
