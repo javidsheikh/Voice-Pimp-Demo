@@ -9,11 +9,11 @@
 import UIKit
 import AVFoundation
 
+enum ActivePlayer {
+    case DelayPlayer, PitchPlayer, DistortionPlayer, VarispeedPlayer, None
+}
+
 class PlaySoundsViewController: UIViewController {
-    
-    enum ActivePlayer {
-        case DelayPlayer, PitchPlayer, DistortionPlayer, VarispeedPlayer, None
-    }
     
     var savedAudio = [RecordedAudio]()
     
