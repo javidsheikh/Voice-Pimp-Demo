@@ -22,6 +22,8 @@ class PlaySoundsViewController: UIViewController {
     var pitch: AVAudioUnitTimePitch!
     var distortionPlayer: AVAudioPlayerNode!
     var distortion: AVAudioUnitDistortion!
+    var varispeed: AVAudioUnitVarispeed!
+    var varispeedPlayer: AVAudioPlayerNode!
     var loopBuffer: AVAudioPCMBuffer!
     
     var mixerOutputFileURL: NSURL?
@@ -51,9 +53,11 @@ class PlaySoundsViewController: UIViewController {
         delayPlayer = AVAudioPlayerNode()
         pitchPlayer = AVAudioPlayerNode()
         distortionPlayer = AVAudioPlayerNode()
+        varispeedPlayer = AVAudioPlayerNode()
         delay = AVAudioUnitDelay()
         pitch = AVAudioUnitTimePitch()
         distortion = AVAudioUnitDistortion()
+        varispeed = AVAudioUnitVarispeed()
         engine = AVAudioEngine()
         
         mixerOutputFilePlayer = AVAudioPlayerNode()
@@ -92,9 +96,11 @@ class PlaySoundsViewController: UIViewController {
         engine.attachNode(delayPlayer)
         engine.attachNode(pitchPlayer)
         engine.attachNode(distortionPlayer)
+        engine.attachNode(varispeedPlayer)
         engine.attachNode(delay)
         engine.attachNode(pitch)
         engine.attachNode(distortion)
+        engine.attachNode(varispeed)
         engine.attachNode(mixerOutputFilePlayer)
     }
     
@@ -109,6 +115,9 @@ class PlaySoundsViewController: UIViewController {
         
         engine.connect(distortionPlayer, to: distortion, format: loopBuffer.format)
         engine.connect(distortion, to: mainMixer, format: loopBuffer.format)
+        
+        engine.connect(varispeedPlayer, to: varispeed, format: loopBuffer.format)
+        engine.connect(varispeed, to: mainMixer, format: loopBuffer.format)
         
         engine.connect(mixerOutputFilePlayer, to: mainMixer, format: mainMixer.outputFormatForBus(0))
     }
@@ -246,9 +255,20 @@ class PlaySoundsViewController: UIViewController {
         }
     }
     
+    func playbackVarispeed(varispeedLevel: Float) {
+        if !varispeedPlayer.playing {
+            varispeed.rate = varispeedLevel
+            self.startEngine()
+            varispeedPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+            varispeedPlayer.play()
+        } else {
+            varispeedPlayer.stop()
+        }
+    }
+    
     // IBActions
     @IBAction func playbackChipmunk(sender: UIButton) {
-        playbackPitch(1000)
+        playbackPitch(800)
         if !pitchPlayer.playing {
             sender.setTitle("Chipmunk Play", forState: .Normal)
         } else {
@@ -257,7 +277,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func playbackVader(sender: UIButton) {
-        playbackPitch(-1000)
+        playbackPitch(-800)
         if !pitchPlayer.playing {
             sender.setTitle("Vader Play", forState: .Normal)
         } else {
@@ -279,7 +299,7 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func playbackAlien(sender: UIButton) {
-        playbackDistortion(.SpeechAlienChatter)
+        playbackDistortion(.MultiCellphoneConcert)
         if !distortionPlayer.playing {
             sender.setTitle("Alien Play", forState: .Normal)
         } else {
@@ -297,7 +317,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func playbackGoldenPi(sender: UIButton) {
-        playbackDistortion(.SpeechGoldenPi)
+        playbackDistortion(.MultiEverythingIsBroken)
         if !distortionPlayer.playing {
             sender.setTitle("Golden Pi Play", forState: .Normal)
         } else {
@@ -306,20 +326,20 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func playbackRadio(sender: UIButton) {
-        playbackDistortion(.SpeechRadioTower)
-        if !distortionPlayer.playing {
-            sender.setTitle("Radio Play", forState: .Normal)
+        playbackVarispeed(2.0)
+        if !varispeedPlayer.playing {
+            sender.setTitle("Hare Play", forState: .Normal)
         } else {
-            sender.setTitle("Radio Pause", forState: .Normal)
+            sender.setTitle("Hare Pause", forState: .Normal)
         }
     }
     
     @IBAction func playbackWaves(sender: UIButton) {
-        playbackDistortion(.SpeechWaves)
-        if !distortionPlayer.playing {
-            sender.setTitle("Waves Play", forState: .Normal)
+        playbackVarispeed(0.7)
+        if !varispeedPlayer.playing {
+            sender.setTitle("Tortoise Play", forState: .Normal)
         } else {
-            sender.setTitle("Waves Pause", forState: .Normal)
+            sender.setTitle("Tortoise Pause", forState: .Normal)
         }
     }
 

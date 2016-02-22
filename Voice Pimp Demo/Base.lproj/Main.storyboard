@@ -57,59 +57,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
-                                <rect key="frame" x="47" y="109" width="102" height="30"/>
+                                <rect key="frame" x="37" y="109" width="122" height="30"/>
                                 <state key="normal" title="Chipmunk Play"/>
                                 <connections>
                                     <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
-                                <rect key="frame" x="65" y="198" width="67" height="30"/>
+                                <rect key="frame" x="55" y="198" width="87" height="30"/>
                                 <state key="normal" title="Echo Play"/>
                                 <connections>
                                     <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="0th-rA-xj0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
-                                <rect key="frame" x="56" y="289" width="84" height="30"/>
+                                <rect key="frame" x="51" y="289" width="95" height="30"/>
                                 <state key="normal" title="Cosmic Play"/>
                                 <connections>
                                     <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="tOn-jC-g6x"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
-                                <rect key="frame" x="225" y="289" width="99" height="30"/>
-                                <state key="normal" title="Golden Pi Play"/>
+                                <rect key="frame" x="222" y="289" width="103" height="30"/>
+                                <state key="normal" title="Broken Play"/>
                                 <connections>
                                     <action selector="playbackGoldenPi:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="mLV-Rp-aLm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
-                                <rect key="frame" x="241" y="198" width="67" height="30"/>
-                                <state key="normal" title="Alien Play"/>
+                                <rect key="frame" x="208" y="198" width="131" height="30"/>
+                                <state key="normal" title="Cellphone Play"/>
                                 <connections>
                                     <action selector="playbackAlien:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="fBU-Mh-avO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
-                                <rect key="frame" x="63" y="391" width="72" height="30"/>
-                                <state key="normal" title="Radio Play"/>
+                                <rect key="frame" x="56" y="384" width="85" height="30"/>
+                                <state key="normal" title="Fast Play"/>
                                 <connections>
                                     <action selector="playbackRadio:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="48p-F1-vNT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
-                                <rect key="frame" x="236" y="391" width="78" height="30"/>
-                                <state key="normal" title="Waves Play"/>
+                                <rect key="frame" x="231" y="384" width="84" height="30"/>
+                                <state key="normal" title="Slow Play"/>
                                 <connections>
                                     <action selector="playbackWaves:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="nir-mR-qrp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
-                                <rect key="frame" x="237" y="109" width="73" height="30"/>
-                                <state key="normal" title="Vader Play"/>
-                                <connections>
-                                    <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47h-2a-XPm">
@@ -131,6 +124,13 @@
                                 <state key="normal" title="Playback"/>
                                 <connections>
                                     <action selector="playbackMixerOutput:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="gm2-Fs-I0I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
+                                <rect key="frame" x="224" y="109" width="99" height="30"/>
+                                <state key="normal" title="Vader Play"/>
+                                <connections>
+                                    <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
                                 </connections>
                             </button>
                         </subviews>
