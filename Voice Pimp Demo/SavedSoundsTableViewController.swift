@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SavedSoundsTableViewController: UITableViewController, UIDocumentInteractionControllerDelegate {
+class SavedSoundsTableViewController: UITableViewController {
         
     var savedAudio: [RecordedAudio]!
     
@@ -20,13 +20,14 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         return url.URLByAppendingPathComponent("savedAudioArray").path!
     }
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [RecordedAudio] {
+            savedAudio = array
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         let popToRecordVCButton = UIBarButtonItem(title: "Record", style: .Plain, target: self, action: Selector("popToRecordVC"))
@@ -40,51 +41,7 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         // Dispose of any resources that can be recreated.
     }
     
-    func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
-        return self
-    }
-    
-    func popToRecordVC() {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return savedAudio.count
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
-        cell.cellImage.image = UIImage(named: "megaphone-clip-art.png")
-        let audioInstance = savedAudio[indexPath.row]
-        cell.cellTitle.text = audioInstance.title
-        cell.cellDate.text = audioInstance.date
-        
-        cell.playButton.tag = indexPath.row
-        cell.playButton.addTarget(self, action: "presentPlayController:", forControlEvents: .TouchUpInside)
-        
-        cell.shareButton.tag = indexPath.row
-        cell.shareButton.addTarget(self, action: "presentShareController:", forControlEvents: .TouchUpInside)
-
-        return cell
-    }
-    
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let audioInstance = savedAudio[indexPath.row]
-//        self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.filePathURL)
-//        self.documentInteractionController.delegate = self
-////        self.documentInteractionController.presentPreviewAnimated(true)
-//        self.documentInteractionController.presentOpenInMenuFromRect(CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2, width: 300, height: 300), inView: self.view, animated: true)
-//        print(audioInstance.filePathURL)
-//    }
-    
+    // MARK: IBActions
     @IBAction func presentPlayController(sender: UIButton) {
         let audioInstance = self.savedAudio[sender.tag] as RecordedAudio
         self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.mp4URL)
@@ -99,48 +56,55 @@ class SavedSoundsTableViewController: UITableViewController, UIDocumentInteracti
         self.documentInteractionController.presentOpenInMenuFromRect(CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2, width: 300, height: 300), inView: self.view, animated: true)
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // MARK: - Table view delegate methods
+    // Sections
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
-    // Override to support editing the table view.
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return savedAudio.count
+    }
+    
+    // Rows
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
+        cell.cellImage.image = UIImage(named: "megaphone-clip-art.png")
+        let audioInstance = savedAudio[indexPath.row]
+        cell.cellTitle.text = audioInstance.title
+        cell.cellDate.text = audioInstance.date
+        
+        cell.playButton.tag = indexPath.row
+        cell.playButton.addTarget(self, action: "presentPlayController:", forControlEvents: .TouchUpInside)
+        
+        cell.shareButton.tag = indexPath.row
+        cell.shareButton.addTarget(self, action: "presentShareController:", forControlEvents: .TouchUpInside)
+        
+        return cell
+    }
+    
+    // Populate cells
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
             self.savedAudio.removeAtIndex(indexPath.row)
             NSKeyedArchiver.archiveRootObject(savedAudio, toFile: filePath)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             tableView.reloadData()
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    // MARK: Helper functions
+    func popToRecordVC() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+// MARK: UIDocumentInteractionController delegate
+extension SavedSoundsTableViewController: UIDocumentInteractionControllerDelegate {
+    
+    func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+}
+

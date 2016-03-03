@@ -9,11 +9,12 @@
 import UIKit
 import AVFoundation
 
-class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
+class RecordSoundsViewController: UIViewController {
     
     var recorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
-
+    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,18 +25,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // AudioRecorder delegate methods
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            recordedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), waaURL: NSURL(fileURLWithPath: ""), title: "", date: "")
-            recordedAudio.mp4URL = recorder.url
-            recordedAudio.title = recorder.url.lastPathComponent!
-            self.performSegueWithIdentifier("segueToPlaySoundsVC", sender: self)
-        } else {
-            print("Recording was unsuccessful")
-        }
-    }
-    
+    // MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToPlaySoundsVC" {
             let controller = segue.destinationViewController as! PlaySoundsViewController
@@ -45,6 +35,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     // IBActions
     @IBAction func recordAudio(sender: UIButton) {
+        
         // Create recording session
         let session = AVAudioSession.sharedInstance()
         do {
@@ -52,12 +43,14 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         } catch {
             print("Unable to initiate recording session.")
         }
+        
         // Set output port to device speaker
         do {
             try session.overrideOutputAudioPort(.Speaker)
         } catch {
             print("Could not override output audio port.")
         }
+        
         // Recording settings
         let recordSettings:[String : AnyObject] = [
             AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatMPEG4AAC),
@@ -66,6 +59,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             AVNumberOfChannelsKey: 2,
             AVSampleRateKey : 44100.0
         ]
+        
         // Start recording
         do {
             try recorder = AVAudioRecorder(URL: createAudioFileURL(), settings: recordSettings)
@@ -79,8 +73,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func stopRecordAudio(sender: UIButton) {
+        
         // Stop recording
         recorder.stop()
+        
         // End recording session
         let session = AVAudioSession.sharedInstance()
         do {
@@ -90,13 +86,28 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    // Helper functions
+    // MARK: Helper functions
     func createAudioFileURL() -> NSURL {
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let recordingName = "recorded_audio.mp4"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
         return filePath!
+    }
+}
+
+// MARK: AudioRecorder delegate
+extension RecordSoundsViewController: AVAudioRecorderDelegate {
+    
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+        if flag {
+            recordedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), waaURL: NSURL(fileURLWithPath: ""), title: "", date: "")
+            recordedAudio.mp4URL = recorder.url
+            recordedAudio.title = recorder.url.lastPathComponent!
+            self.performSegueWithIdentifier("segueToPlaySoundsVC", sender: self)
+        } else {
+            print("Recording was unsuccessful")
+        }
     }
 }
 
