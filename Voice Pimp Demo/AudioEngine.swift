@@ -11,6 +11,7 @@ import AVFoundation
 
 class AudioEngine: NSObject {
     
+    // MARK: Variables
     var savedAudio = [RecordedAudio]()
     
     var engine: AVAudioEngine!
@@ -36,6 +37,7 @@ class AudioEngine: NSObject {
         return url.URLByAppendingPathComponent("savedAudioArray").path!
     }
     
+    // MARK: Initialization
     override init() {
         
         super.init()
@@ -59,24 +61,19 @@ class AudioEngine: NSObject {
         
         // Create an instance of the engine and attach the nodes
         self.createEngineAndAttachNodes()
-        
-        // Load audio loop
-//        let audioLoopURL = receivedAudio.mp4URL
-//        let audioLoopFile: AVAudioFile
-//        do {
-//            audioLoopFile = try AVAudioFile(forReading: audioLoopURL)
-//            loopBuffer = AVAudioPCMBuffer(PCMFormat: audioLoopFile.processingFormat, frameCapacity: AVAudioFrameCount(audioLoopFile.length))
-//            try audioLoopFile.readIntoBuffer(loopBuffer)
-//        } catch let error as NSError {
-//            fatalError("Couldn't read audioLoopFile into buffer, \(error.localizedDescription)")
-//        }
-        
-//        // Make engine connections
-//        self.makeEngineConnections()
-//        
-//        // Start engine
-//        self.startEngine()
-        
+    }
+    
+    // MARK: Setup functions
+    func createEngineAndAttachNodes() {
+        engine = AVAudioEngine()
+        engine.attachNode(delayPlayer)
+        engine.attachNode(pitchPlayer)
+        engine.attachNode(distortionPlayer)
+        engine.attachNode(varispeedPlayer)
+        engine.attachNode(delay)
+        engine.attachNode(pitch)
+        engine.attachNode(distortion)
+        engine.attachNode(varispeed)
     }
     
     func loadAudioLoop(receivedAudio: RecordedAudio) {
@@ -89,19 +86,6 @@ class AudioEngine: NSObject {
         } catch let error as NSError {
             fatalError("Couldn't read audioLoopFile into buffer, \(error.localizedDescription)")
         }
-    }
-    
-    func createEngineAndAttachNodes() {
-        engine = AVAudioEngine()
-        engine.attachNode(delayPlayer)
-        engine.attachNode(pitchPlayer)
-        engine.attachNode(distortionPlayer)
-        engine.attachNode(varispeedPlayer)
-        engine.attachNode(delay)
-        engine.attachNode(pitch)
-        engine.attachNode(distortion)
-        engine.attachNode(varispeed)
-        //        engine.attachNode(mixerOutputFilePlayer)
     }
     
     func makeEngineConnections() {
@@ -141,6 +125,7 @@ class AudioEngine: NSObject {
         return filePath
     }
     
+    // MARK: Record functions
     func startRecordingMixerOutput() {
         // install a tap on the main mixer output bus and write output buffers to file
         if mixerOutputFileURL == nil {
@@ -154,6 +139,7 @@ class AudioEngine: NSObject {
         let mainMixer = engine.mainMixerNode
         let mixerOutputFile: AVAudioFile
         let waaMixerOutputFile: AVAudioFile
+        
         // Recording settings
         let recordSettings:[String : AnyObject] = [
             AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatMPEG4AAC),
@@ -184,13 +170,13 @@ class AudioEngine: NSObject {
     }
     
     func stopRecordingMixerOutput() {
-        // stop recording really means remove the tap on the main mixer that was created in startRecordingMixerOutput
         if isRecording {
             engine.mainMixerNode.removeTapOnBus(0)
             isRecording = false
         }
     }
     
+    // MARK: Playback functions
     func playbackPitch(pitchLevel: Float) {
         stopActivePlayer()
         activePlayer = .PitchPlayer
@@ -247,6 +233,7 @@ class AudioEngine: NSObject {
         self.engine.reset()
     }
     
+    // MARK: Save functions
     func saveNewAudio(title: String) {
         let newSavedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), waaURL: NSURL(fileURLWithPath: ""), title: "", date: "")
         
@@ -268,6 +255,7 @@ class AudioEngine: NSObject {
     }
 }
 
+// MARK: Active player enum
 enum ActivePlayer {
     case DelayPlayer, PitchPlayer, DistortionPlayer, VarispeedPlayer, None
 }

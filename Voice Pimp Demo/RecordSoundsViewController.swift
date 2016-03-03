@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+
+// MARK: Record Sounds VC
 class RecordSoundsViewController: UIViewController {
     
     var recorder: AVAudioRecorder!
