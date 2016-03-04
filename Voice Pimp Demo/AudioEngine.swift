@@ -58,9 +58,6 @@ class AudioEngine: NSObject {
         
         mixerOutputFileURL = nil
         isRecording = false
-        
-        // Create an instance of the engine and attach the nodes
-        self.createEngineAndAttachNodes()
     }
     
     // MARK: Setup functions

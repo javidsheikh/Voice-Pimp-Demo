@@ -21,16 +21,13 @@ class PlaySoundsViewController: UIViewController {
         super.viewDidLoad()
         
         self.engine = AudioEngine()
+        
+        self.engine.createEngineAndAttachNodes()
 
         self.engine.loadAudioLoop(receivedAudio)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
         
-        // Make engine connections
         self.engine.makeEngineConnections()
-        
-        // Start engine
+
         self.engine.startEngine()
     }
 
@@ -74,7 +71,7 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func stopPlaybackRecord(sender: AnyObject) {
         
-        engine.stopActivePlayer()
+        self.engine.stopActivePlayer()
         
         self.showSaveAlertPopup()
 
