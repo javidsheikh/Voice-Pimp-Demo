@@ -19,10 +19,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toB-5P-Oy8">
                                 <rect key="frame" x="137" y="284" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Record">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hi0-h1-E4E"/>
@@ -30,17 +30,17 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-6K-oD9">
                                 <rect key="frame" x="137" y="445" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.2196078431372549" green="0.20392156862745098" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Stop">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="stopRecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRg-yh-gkl"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.38589888369999997" green="0.51986655169999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Voice Pimp" id="vNB-UC-gzY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -70,10 +70,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
                                 <rect key="frame" x="76" y="210" width="75" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Echo">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="0th-rA-xj0"/>
@@ -81,10 +81,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
                                 <rect key="frame" x="76" y="309" width="75" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Cosmic">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="tOn-jC-g6x"/>
@@ -92,10 +92,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
                                 <rect key="frame" x="242" y="309" width="76" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Broken">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playbackGoldenPi:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="mLV-Rp-aLm"/>
@@ -103,10 +103,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
                                 <rect key="frame" x="243" y="210" width="75" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Cellphone">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playbackAlien:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="fBU-Mh-avO"/>
@@ -114,10 +114,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
                                 <rect key="frame" x="76" y="400" width="75" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Fast">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playbackRadio:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="48p-F1-vNT"/>
@@ -125,10 +125,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
                                 <rect key="frame" x="243" y="400" width="75" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Slow">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playbackWaves:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="nir-mR-qrp"/>
@@ -136,10 +136,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
                                 <rect key="frame" x="243" y="118" width="75" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Vader">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
@@ -147,10 +147,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-2f-ASp">
                                 <rect key="frame" x="152" y="501" width="90" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Stop/Save">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="stopPlaybackRecord:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="pTN-oy-Xos"/>
@@ -158,17 +158,17 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
                                 <rect key="frame" x="76" y="118" width="75" height="60"/>
-                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Chipmunk">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -211,32 +211,32 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpv-2y-Nc9">
                                             <rect key="frame" x="112" y="9" width="250" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPa-ss-UHx">
                                             <rect key="frame" x="112" y="58" width="250" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7JZ-kd-zXw">
                                             <rect key="frame" x="156" y="96" width="36" height="30"/>
-                                            <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" title="Play">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5J-15-Rr1">
                                             <rect key="frame" x="270" y="96" width="45" height="30"/>
-                                            <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.21960784310000001" green="0.20392156859999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" title="Share">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.38589888369999997" green="0.51986655169999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellDate" destination="NPa-ss-UHx" id="1ec-1b-RJU"/>

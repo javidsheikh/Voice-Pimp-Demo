@@ -26,8 +26,8 @@ class RecordSoundsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 244/255, green: 53/255, blue: 53/255, alpha: 1)
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 0, green: 0, blue: 63/255, alpha: 1)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 0, green: 0, blue: 63/255, alpha: 1)]
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         for button in self.buttons {
             button.layer.cornerRadius = 50
@@ -37,8 +37,8 @@ class RecordSoundsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         self.stopButton.hidden = true
         self.recordButton.enabled = true
-        self.recordButton.backgroundColor = UIColor(red: 244/255, green: 53/255, blue: 53/255, alpha: 1)
-        self.recordButton.setTitleColor(UIColor(red: 0, green: 0, blue: 63/255, alpha: 1), forState: .Normal)
+        self.recordButton.backgroundColor = UIColor(red: 56/255, green: 52/255, blue: 242/255, alpha: 1)
+        self.recordButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
