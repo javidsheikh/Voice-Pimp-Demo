@@ -20,15 +20,21 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // UI
+        for button in self.buttons {
+            button.layer.cornerRadius = 30
+        }
+        
+        // Audio engine setup
         self.engine = AudioEngine()
-        
         self.engine.createEngineAndAttachNodes()
-
         self.engine.loadAudioLoop(receivedAudio)
-        
         self.engine.makeEngineConnections()
-
         self.engine.startEngine()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.stopSaveButton.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,37 +42,49 @@ class PlaySoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: IBOutlets
+    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet weak var stopSaveButton: UIButton!
+    
     // MARK: IBActions
     @IBAction func playbackChipmunk(sender: UIButton) {
         engine.playbackPitch(800)
+        self.stopSaveButton.hidden = false
     }
     
     @IBAction func playbackVader(sender: UIButton) {
         engine.playbackPitch(-800)
+        self.stopSaveButton.hidden = false
     }
     
     @IBAction func playbackEcho(sender: UIButton) {
         engine.playbackDelay(1.5)
+        self.stopSaveButton.hidden = false
     }
 
     @IBAction func playbackAlien(sender: UIButton) {
         engine.playbackDistortion(.MultiCellphoneConcert)
+        self.stopSaveButton.hidden = false
     }
     
     @IBAction func playbackCosmic(sender: UIButton) {
         engine.playbackDistortion(.SpeechCosmicInterference)
+        self.stopSaveButton.hidden = false
     }
     
     @IBAction func playbackGoldenPi(sender: UIButton) {
         engine.playbackDistortion(.MultiEverythingIsBroken)
+        self.stopSaveButton.hidden = false
     }
     
     @IBAction func playbackRadio(sender: UIButton) {
         engine.playbackVarispeed(2.0)
+        self.stopSaveButton.hidden = false
     }
     
     @IBAction func playbackWaves(sender: UIButton) {
         engine.playbackVarispeed(0.7)
+        self.stopSaveButton.hidden = false
     }
     
     @IBAction func stopPlaybackRecord(sender: AnyObject) {

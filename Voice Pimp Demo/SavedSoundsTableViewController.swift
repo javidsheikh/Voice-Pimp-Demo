@@ -29,9 +29,9 @@ class SavedSoundsTableViewController: UITableViewController {
             savedAudio = array
         }
 
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
-        let popToRecordVCButton = UIBarButtonItem(title: "Record", style: .Plain, target: self, action: Selector("popToRecordVC"))
+        let popToRecordVCButton = UIBarButtonItem(title: "Record More", style: .Plain, target: self, action: Selector("popToRecordVC"))
         self.navigationItem.rightBarButtonItem = popToRecordVCButton
         
         self.tableView.reloadData()

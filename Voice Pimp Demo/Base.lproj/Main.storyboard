@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Record Sounds View Controller-->
+        <!--Voice Pimp-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,25 +18,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toB-5P-Oy8">
-                                <rect key="frame" x="163" y="319" width="49" height="30"/>
-                                <state key="normal" title="Record"/>
+                                <rect key="frame" x="137" y="284" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hi0-h1-E4E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-6K-oD9">
-                                <rect key="frame" x="171" y="497" width="32" height="30"/>
-                                <state key="normal" title="Stop"/>
+                                <rect key="frame" x="137" y="445" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="stopRecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRg-yh-gkl"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vNB-UC-gzY"/>
+                    <navigationItem key="navigationItem" title="Voice Pimp" id="vNB-UC-gzY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="recordButton" destination="toB-5P-Oy8" id="uGJ-Rt-wee"/>
+                        <outlet property="stopButton" destination="ugy-6K-oD9" id="1Ch-tI-7QD"/>
+                        <outletCollection property="buttons" destination="ugy-6K-oD9" collectionClass="NSMutableArray" id="rgZ-pJ-L0T"/>
+                        <outletCollection property="buttons" destination="toB-5P-Oy8" collectionClass="NSMutableArray" id="HU3-qh-XoR"/>
                         <segue destination="jaX-xU-ZCU" kind="show" identifier="segueToPlaySoundsVC" id="CA7-oF-Tvp"/>
                     </connections>
                 </viewController>
@@ -44,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="1631.5" y="456.5"/>
         </scene>
-        <!--Play Sounds View Controller-->
+        <!--Add Effects-->
         <scene sceneID="AaN-oV-ws7">
             <objects>
-                <viewController id="jaX-xU-ZCU" customClass="PlaySoundsViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Effects" id="jaX-xU-ZCU" customClass="PlaySoundsViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kza-ab-Kg9"/>
                         <viewControllerLayoutGuide type="bottom" id="LAn-rz-ikV"/>
@@ -56,74 +68,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
-                                <rect key="frame" x="37" y="109" width="122" height="30"/>
-                                <state key="normal" title="Chipmunk Play"/>
-                                <connections>
-                                    <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
-                                <rect key="frame" x="55" y="198" width="87" height="30"/>
-                                <state key="normal" title="Echo Play"/>
+                                <rect key="frame" x="76" y="210" width="75" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Echo">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="0th-rA-xj0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
-                                <rect key="frame" x="51" y="289" width="95" height="30"/>
-                                <state key="normal" title="Cosmic Play"/>
+                                <rect key="frame" x="76" y="309" width="75" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Cosmic">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="tOn-jC-g6x"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
-                                <rect key="frame" x="222" y="289" width="103" height="30"/>
-                                <state key="normal" title="Broken Play"/>
+                                <rect key="frame" x="242" y="309" width="76" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Broken">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playbackGoldenPi:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="mLV-Rp-aLm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
-                                <rect key="frame" x="208" y="198" width="131" height="30"/>
-                                <state key="normal" title="Cellphone Play"/>
+                                <rect key="frame" x="243" y="210" width="75" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Cellphone">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playbackAlien:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="fBU-Mh-avO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
-                                <rect key="frame" x="56" y="384" width="85" height="30"/>
-                                <state key="normal" title="Fast Play"/>
+                                <rect key="frame" x="76" y="400" width="75" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Fast">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playbackRadio:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="48p-F1-vNT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
-                                <rect key="frame" x="231" y="384" width="84" height="30"/>
-                                <state key="normal" title="Slow Play"/>
+                                <rect key="frame" x="243" y="400" width="75" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Slow">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playbackWaves:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="nir-mR-qrp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
-                                <rect key="frame" x="224" y="109" width="99" height="30"/>
-                                <state key="normal" title="Vader Play"/>
+                                <rect key="frame" x="243" y="118" width="75" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Vader">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-2f-ASp">
-                                <rect key="frame" x="152" y="501" width="70" height="30"/>
-                                <state key="normal" title="Stop/Save"/>
+                                <rect key="frame" x="152" y="501" width="90" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Stop/Save">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="stopPlaybackRecord:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="pTN-oy-Xos"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
+                                <rect key="frame" x="76" y="118" width="75" height="60"/>
+                                <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Chipmunk">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="stopSaveButton" destination="NVi-2f-ASp" id="GIQ-EZ-o6d"/>
+                        <outletCollection property="buttons" destination="JzJ-kL-ewg" collectionClass="NSMutableArray" id="Nhd-q6-6vi"/>
+                        <outletCollection property="buttons" destination="nQG-Oy-ekc" collectionClass="NSMutableArray" id="Iup-3q-6F8"/>
+                        <outletCollection property="buttons" destination="nst-lS-lMk" collectionClass="NSMutableArray" id="sPl-ff-buG"/>
+                        <outletCollection property="buttons" destination="OIQ-Yy-oiQ" collectionClass="NSMutableArray" id="ucZ-p1-xAu"/>
+                        <outletCollection property="buttons" destination="JCF-cR-yen" collectionClass="NSMutableArray" id="9Zp-xz-lFT"/>
+                        <outletCollection property="buttons" destination="jDF-aq-YqG" collectionClass="NSMutableArray" id="8DF-tF-06A"/>
+                        <outletCollection property="buttons" destination="0LL-XH-LMF" collectionClass="NSMutableArray" id="uJM-1n-QmK"/>
+                        <outletCollection property="buttons" destination="QCP-1y-IGH" collectionClass="NSMutableArray" id="dyX-Du-yaf"/>
+                        <outletCollection property="buttons" destination="NVi-2f-ASp" collectionClass="NSMutableArray" id="RiB-Mp-nMe"/>
                         <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsTableVC" id="fsU-cg-XLG"/>
                     </connections>
                 </viewController>
@@ -131,14 +189,15 @@
             </objects>
             <point key="canvasLocation" x="2171.5" y="456.5"/>
         </scene>
-        <!--Saved Sounds Table View Controller-->
+        <!--Saved Sounds-->
         <scene sceneID="Wfv-s4-UyU">
             <objects>
-                <tableViewController id="7Tl-Dl-Z1Q" customClass="SavedSoundsTableViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Saved Sounds" id="7Tl-Dl-Z1Q" customClass="SavedSoundsTableViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="141" sectionHeaderHeight="28" sectionFooterHeight="28" id="a40-FY-HNh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="141" id="wzr-zg-qk3" customClass="TableViewCell" customModule="Voice_Pimp_Demo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="141"/>
@@ -151,26 +210,33 @@
                                             <rect key="frame" x="8" y="9" width="96" height="122"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpv-2y-Nc9">
-                                            <rect key="frame" x="125" y="9" width="242" height="30"/>
+                                            <rect key="frame" x="112" y="9" width="250" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPa-ss-UHx">
-                                            <rect key="frame" x="125" y="58" width="250" height="30"/>
+                                            <rect key="frame" x="112" y="58" width="250" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7JZ-kd-zXw">
-                                            <rect key="frame" x="172" y="96" width="30" height="30"/>
-                                            <state key="normal" title="Play"/>
+                                            <rect key="frame" x="156" y="96" width="36" height="30"/>
+                                            <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Play">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5J-15-Rr1">
-                                            <rect key="frame" x="295" y="96" width="40" height="30"/>
-                                            <state key="normal" title="Share"/>
+                                            <rect key="frame" x="270" y="96" width="45" height="30"/>
+                                            <color key="backgroundColor" red="0.91778846150000004" green="0.2077048766" blue="0.22965957470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Share">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
                                         </button>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellDate" destination="NPa-ss-UHx" id="1ec-1b-RJU"/>
