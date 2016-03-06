@@ -16,6 +16,9 @@ class RecordSoundsViewController: UIViewController {
     var recorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
     
+    var iMinSessions = 5
+    var iTryAgainSessions = 3
+    
     // MARK: IBOutlets
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet weak var recordButton: UIButton!
@@ -39,6 +42,8 @@ class RecordSoundsViewController: UIViewController {
         self.recordButton.enabled = true
         self.recordButton.backgroundColor = UIColor(red: 56/255, green: 52/255, blue: 242/255, alpha: 1)
         self.recordButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        
+        self.rateMe()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,8 +63,8 @@ class RecordSoundsViewController: UIViewController {
     @IBAction func recordAudio(sender: UIButton) {
         // Update UI
         self.recordButton.enabled = false
-        self.recordButton.backgroundColor = UIColor(red: 0.98, green: 0.60, blue: 0.57, alpha: 1)
-        self.recordButton.setTitleColor(UIColor(red: 0.99, green: 0.87, blue: 0.85, alpha: 1), forState: .Normal)
+        self.recordButton.backgroundColor = UIColor(red: 0.97, green: 0.51, blue: 0.47, alpha: 1)
+        self.recordButton.setTitleColor(UIColor(red: 0.99, green: 0.78, blue: 0.76, alpha: 1), forState: .Normal)
         self.stopButton.hidden = false
         
         // Create recording session
@@ -119,6 +124,36 @@ class RecordSoundsViewController: UIViewController {
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
         return filePath!
+    }
+    
+    // MARK: Rate app functions
+    func rateMe() {
+        let neverRate = NSUserDefaults.standardUserDefaults().boolForKey("neverRate")
+        var numLaunches = NSUserDefaults.standardUserDefaults().integerForKey("numLaunches") + 1
+        if (!neverRate && (numLaunches == iMinSessions || numLaunches >= (iMinSessions + iTryAgainSessions + 1))) {
+            showRateMe()
+            numLaunches = iMinSessions + 1
+        }
+        NSUserDefaults.standardUserDefaults().setInteger(numLaunches, forKey: "numLaunches")
+    }
+    
+    func showRateMe() {
+        let alert = UIAlertController(title: "Rate Us", message: "Do you love Voice Pimp? Please rate us on the app store.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Rate Voice Pimp", style: UIAlertActionStyle.Default, handler: { alertAction in
+            //            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<iTUNES CONNECT APP ID>")!)
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
+            // TODO: Amend URL
+            UIApplication.sharedApplication().openURL(NSURL(string: "https://theysaidso.com/")!)
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.Default, handler: { alertAction in
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Maybe Later", style: UIAlertActionStyle.Default, handler: { alertAction in
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }
 
