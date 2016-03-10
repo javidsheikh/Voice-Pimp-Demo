@@ -40,8 +40,6 @@ class RecordSoundsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         self.stopButton.hidden = true
         self.recordButton.enabled = true
-        self.recordButton.backgroundColor = UIColor(red: 56/255, green: 52/255, blue: 242/255, alpha: 1)
-        self.recordButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
         self.rateMe()
     }
@@ -63,8 +61,7 @@ class RecordSoundsViewController: UIViewController {
     @IBAction func recordAudio(sender: UIButton) {
         // Update UI
         self.recordButton.enabled = false
-        self.recordButton.backgroundColor = UIColor(red: 0.97, green: 0.51, blue: 0.47, alpha: 1)
-        self.recordButton.setTitleColor(UIColor(red: 0.99, green: 0.78, blue: 0.76, alpha: 1), forState: .Normal)
+
         self.stopButton.hidden = false
         
         // Create recording session
