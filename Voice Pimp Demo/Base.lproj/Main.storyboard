@@ -156,29 +156,30 @@
                                     <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-2f-ASp">
-                                <rect key="frame" x="89" y="576" width="55" height="55"/>
-                                <state key="normal" image="Stop">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopPlaybackRecord:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="pTN-oy-Xos"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQC-Tf-YcL">
-                                <rect key="frame" x="230" y="576" width="55" height="55"/>
-                                <state key="normal" image="Save"/>
-                                <connections>
-                                    <action selector="savePlaybackRecord:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="YRr-aD-Lyp"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zQf-PA-0Dk">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Stop" id="Fqy-wG-ohf">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="stopPlaybackRecord:" destination="jaX-xU-ZCU" id="y0s-55-FQ3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="C89-zw-345"/>
+                                    <barButtonItem systemItem="save" id="HHA-Z7-vCC">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="savePlaybackRecord:" destination="jaX-xU-ZCU" id="z8U-0r-GGG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.95686274510000002" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="saveButton" destination="NQC-Tf-YcL" id="lr0-XB-Khg"/>
-                        <outlet property="stopButton" destination="NVi-2f-ASp" id="iv1-YZ-juC"/>
                         <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsTableVC" id="fsU-cg-XLG"/>
                     </connections>
                 </viewController>
@@ -282,13 +283,12 @@
         <image name="Microphone" width="240" height="531"/>
         <image name="Parrot" width="174" height="174"/>
         <image name="Play" width="55" height="55"/>
-        <image name="Save" width="179" height="179"/>
         <image name="Share" width="139" height="135"/>
         <image name="Stop" width="179" height="179"/>
         <image name="Tortoise" width="174" height="174"/>
         <image name="Vader" width="174" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3bH-FH-55f"/>
+        <segue reference="fsU-cg-XLG"/>
     </inferredMetricsTieBreakers>
 </document>
