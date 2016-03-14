@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toB-5P-Oy8">
-                                <rect key="frame" x="137" y="187" width="100" height="200"/>
+                                <rect key="frame" x="137" y="149" width="100" height="219"/>
                                 <state key="normal" image="Microphone">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-6K-oD9">
-                                <rect key="frame" x="132" y="442" width="110" height="110"/>
+                                <rect key="frame" x="152" y="469" width="71" height="70"/>
                                 <state key="normal" image="Stop">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -35,6 +35,12 @@
                                     <action selector="stopRecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRg-yh-gkl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap above to start recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osh-PL-xso">
+                                <rect key="frame" x="56" y="381" width="262" height="47"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                <color key="textColor" red="0.12941176470588237" green="0.10588235294117647" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.38589888369999997" green="0.51986655169999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -42,6 +48,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="recordButton" destination="toB-5P-Oy8" id="uGJ-Rt-wee"/>
+                        <outlet property="recordPrompt" destination="Osh-PL-xso" id="Xli-qe-XDa"/>
                         <outlet property="stopButton" destination="ugy-6K-oD9" id="1Ch-tI-7QD"/>
                         <outletCollection property="buttons" destination="ugy-6K-oD9" collectionClass="NSMutableArray" id="rgZ-pJ-L0T"/>
                         <outletCollection property="buttons" destination="toB-5P-Oy8" collectionClass="NSMutableArray" id="HU3-qh-XoR"/>
@@ -65,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
-                                <rect key="frame" x="51" y="196" width="100" height="100"/>
+                                <rect key="frame" x="44" y="210" width="100" height="100"/>
                                 <state key="normal" image="Parrot">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -74,52 +81,52 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
-                                <rect key="frame" x="51" y="317" width="100" height="100"/>
+                                <rect key="frame" x="44" y="328" width="100" height="100"/>
                                 <state key="normal" image="Cosmic">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="tOn-jC-g6x"/>
+                                    <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="FBu-K6-kLU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
-                                <rect key="frame" x="230" y="317" width="100" height="100"/>
+                                <rect key="frame" x="230" y="328" width="100" height="100"/>
                                 <state key="normal" image="Broken">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playbackGoldenPi:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="mLV-Rp-aLm"/>
+                                    <action selector="playbackBroken:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Kjo-RL-0M9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
-                                <rect key="frame" x="230" y="196" width="100" height="100"/>
+                                <rect key="frame" x="230" y="210" width="100" height="100"/>
                                 <state key="normal" image="Cellphone">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playbackAlien:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="fBU-Mh-avO"/>
+                                    <action selector="playbackCellphone:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="2En-Gy-eJp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
-                                <rect key="frame" x="51" y="438" width="100" height="100"/>
+                                <rect key="frame" x="44" y="444" width="100" height="100"/>
                                 <state key="normal" image="Hare">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playbackRadio:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="48p-F1-vNT"/>
+                                    <action selector="playbackFast:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Yvr-To-BgX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
-                                <rect key="frame" x="230" y="438" width="100" height="100"/>
+                                <rect key="frame" x="230" y="444" width="100" height="100"/>
                                 <state key="normal" image="Tortoise">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playbackWaves:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="nir-mR-qrp"/>
+                                    <action selector="playbackSlow:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Nf7-R6-oiQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
-                                <rect key="frame" x="230" y="77" width="100" height="100"/>
+                                <rect key="frame" x="230" y="95" width="100" height="100"/>
                                 <state key="normal" image="Vader">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -128,7 +135,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
-                                <rect key="frame" x="51" y="77" width="100" height="100"/>
+                                <rect key="frame" x="44" y="95" width="100" height="100"/>
                                 <state key="normal" image="Chipmunk">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -137,7 +144,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVi-2f-ASp">
-                                <rect key="frame" x="147" y="556" width="80" height="80"/>
+                                <rect key="frame" x="89" y="576" width="55" height="55"/>
                                 <state key="normal" image="Stop">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -145,21 +152,20 @@
                                     <action selector="stopPlaybackRecord:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="pTN-oy-Xos"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQC-Tf-YcL">
+                                <rect key="frame" x="230" y="576" width="55" height="55"/>
+                                <state key="normal" image="Save"/>
+                                <connections>
+                                    <action selector="savePlaybackRecord:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="YRr-aD-Lyp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="stopSaveButton" destination="NVi-2f-ASp" id="GIQ-EZ-o6d"/>
-                        <outletCollection property="buttons" destination="JzJ-kL-ewg" collectionClass="NSMutableArray" id="Nhd-q6-6vi"/>
-                        <outletCollection property="buttons" destination="nQG-Oy-ekc" collectionClass="NSMutableArray" id="Iup-3q-6F8"/>
-                        <outletCollection property="buttons" destination="nst-lS-lMk" collectionClass="NSMutableArray" id="sPl-ff-buG"/>
-                        <outletCollection property="buttons" destination="OIQ-Yy-oiQ" collectionClass="NSMutableArray" id="ucZ-p1-xAu"/>
-                        <outletCollection property="buttons" destination="JCF-cR-yen" collectionClass="NSMutableArray" id="9Zp-xz-lFT"/>
-                        <outletCollection property="buttons" destination="jDF-aq-YqG" collectionClass="NSMutableArray" id="8DF-tF-06A"/>
-                        <outletCollection property="buttons" destination="0LL-XH-LMF" collectionClass="NSMutableArray" id="uJM-1n-QmK"/>
-                        <outletCollection property="buttons" destination="QCP-1y-IGH" collectionClass="NSMutableArray" id="dyX-Du-yaf"/>
-                        <outletCollection property="buttons" destination="NVi-2f-ASp" collectionClass="NSMutableArray" id="RiB-Mp-nMe"/>
+                        <outlet property="saveButton" destination="NQC-Tf-YcL" id="lr0-XB-Khg"/>
+                        <outlet property="stopButton" destination="NVi-2f-ASp" id="iv1-YZ-juC"/>
                         <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsTableVC" id="fsU-cg-XLG"/>
                     </connections>
                 </viewController>
@@ -189,13 +195,13 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpv-2y-Nc9">
                                             <rect key="frame" x="112" y="9" width="250" height="30"/>
-                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPa-ss-UHx">
                                             <rect key="frame" x="112" y="58" width="250" height="30"/>
-                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -260,11 +266,12 @@
         <image name="Chipmunk" width="174" height="174"/>
         <image name="Cosmic" width="174" height="174"/>
         <image name="Hare" width="174" height="174"/>
-        <image name="Microphone" width="253" height="466"/>
+        <image name="Microphone" width="240" height="531"/>
         <image name="Parrot" width="174" height="174"/>
         <image name="Play" width="55" height="55"/>
+        <image name="Save" width="179" height="179"/>
         <image name="Share" width="139" height="135"/>
-        <image name="Stop" width="174" height="174"/>
+        <image name="Stop" width="179" height="179"/>
         <image name="Tortoise" width="174" height="174"/>
         <image name="Vader" width="174" height="174"/>
     </resources>

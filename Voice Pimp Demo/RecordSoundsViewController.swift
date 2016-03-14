@@ -23,6 +23,7 @@ class RecordSoundsViewController: UIViewController {
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var recordPrompt: UILabel!
     
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -30,7 +31,7 @@ class RecordSoundsViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 244/255, green: 53/255, blue: 53/255, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 24)!]
         
         for button in self.buttons {
             button.layer.cornerRadius = 50
@@ -40,6 +41,7 @@ class RecordSoundsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         self.stopButton.hidden = true
         self.recordButton.enabled = true
+        self.recordPrompt.text = "Tap above to start recording"
         
         self.rateMe()
     }
@@ -61,8 +63,8 @@ class RecordSoundsViewController: UIViewController {
     @IBAction func recordAudio(sender: UIButton) {
         // Update UI
         self.recordButton.enabled = false
-
         self.stopButton.hidden = false
+        self.recordPrompt.text = "Recording..."
         
         // Create recording session
         let session = AVAudioSession.sharedInstance()

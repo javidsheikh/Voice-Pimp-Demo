@@ -20,11 +20,6 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // UI
-        for button in self.buttons {
-            button.layer.cornerRadius = 30
-        }
-        
         // Audio engine setup
         self.engine = AudioEngine()
         self.engine.createEngineAndAttachNodes()
@@ -34,7 +29,8 @@ class PlaySoundsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.stopSaveButton.hidden = true
+        self.stopButton.hidden = true
+        self.saveButton.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,56 +39,71 @@ class PlaySoundsViewController: UIViewController {
     }
     
     // MARK: IBOutlets
-    @IBOutlet var buttons: [UIButton]!
-    @IBOutlet weak var stopSaveButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     // MARK: IBActions
     @IBAction func playbackChipmunk(sender: UIButton) {
         engine.playbackPitch(800)
-        self.stopSaveButton.hidden = false
+        self.stopButton.hidden = false
+        self.saveButton.hidden = false
     }
     
     @IBAction func playbackVader(sender: UIButton) {
         engine.playbackPitch(-800)
-        self.stopSaveButton.hidden = false
+        self.stopButton.hidden = false
+        self.saveButton.hidden = false
     }
     
     @IBAction func playbackEcho(sender: UIButton) {
         engine.playbackDelay(1.5)
-        self.stopSaveButton.hidden = false
+        self.stopButton.hidden = false
+        self.saveButton.hidden = false
     }
 
-    @IBAction func playbackAlien(sender: UIButton) {
+    @IBAction func playbackCellphone(sender: UIButton) {
         engine.playbackDistortion(.MultiCellphoneConcert)
-        self.stopSaveButton.hidden = false
+        self.stopButton.hidden = false
+        self.saveButton.hidden = false
     }
     
     @IBAction func playbackCosmic(sender: UIButton) {
         engine.playbackDistortion(.SpeechCosmicInterference)
-        self.stopSaveButton.hidden = false
+        self.stopButton.hidden = false
+        self.saveButton.hidden = false
     }
     
-    @IBAction func playbackGoldenPi(sender: UIButton) {
+    @IBAction func playbackBroken(sender: UIButton) {
         engine.playbackDistortion(.MultiEverythingIsBroken)
-        self.stopSaveButton.hidden = false
+        self.stopButton.hidden = false
+        self.saveButton.hidden = false
     }
     
-    @IBAction func playbackRadio(sender: UIButton) {
+    @IBAction func playbackFast(sender: UIButton) {
         engine.playbackVarispeed(2.0)
-        self.stopSaveButton.hidden = false
+        self.stopButton.hidden = false
+        self.saveButton.hidden = false
     }
     
-    @IBAction func playbackWaves(sender: UIButton) {
+    @IBAction func playbackSlow(sender: UIButton) {
         engine.playbackVarispeed(0.7)
-        self.stopSaveButton.hidden = false
+        self.stopButton.hidden = false
+        self.saveButton.hidden = false
     }
     
     @IBAction func stopPlaybackRecord(sender: AnyObject) {
         
         self.engine.stopActivePlayer()
         
+        self.stopButton.hidden = true
+        self.saveButton.hidden = true
+    }
+    
+    @IBAction func savePlaybackRecord(sender: AnyObject) {
+        
+        self.engine.stopActivePlayer()
+        
         self.showSaveAlertPopup()
-
     }
     
     // MARK: Helper functions
@@ -110,7 +121,10 @@ class PlaySoundsViewController: UIViewController {
             self.engine.saveNewAudio(title)
             self.performSegueWithIdentifier("segueToSavedSoundsTableVC", sender: self)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
+            self.stopButton.hidden = true
+            self.saveButton.hidden = true
+        }
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         self.presentViewController(alert, animated: true, completion: nil)
