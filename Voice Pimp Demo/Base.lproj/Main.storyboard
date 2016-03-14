@@ -41,6 +41,19 @@
                                 <color key="textColor" red="0.12941176470588237" green="0.10588235294117647" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ap6-Ug-Tva">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sjO-uL-1Uk"/>
+                                    <barButtonItem title="Saved Sounds" id="XRC-Xp-C4l">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsVC" id="3bH-FH-55f"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.95686274509803915" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.38589888369999997" green="0.51986655169999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -171,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYP-Gk-qpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2171.5" y="456.5"/>
+            <point key="canvasLocation" x="2184.5" y="83.5"/>
         </scene>
         <!--Saved Sounds-->
         <scene sceneID="Wfv-s4-UyU">
@@ -275,4 +288,7 @@
         <image name="Tortoise" width="174" height="174"/>
         <image name="Vader" width="174" height="174"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3bH-FH-55f"/>
+    </inferredMetricsTieBreakers>
 </document>

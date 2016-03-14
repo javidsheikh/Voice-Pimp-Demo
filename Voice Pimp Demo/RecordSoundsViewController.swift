@@ -115,7 +115,7 @@ class RecordSoundsViewController: UIViewController {
             print("Unable to deactivate recording session.")
         }
     }
-    
+
     // MARK: Helper functions
     func createAudioFileURL() -> NSURL {
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
