@@ -55,19 +55,6 @@
                                     <constraint firstAttribute="width" constant="240" id="xI6-g8-3Hd"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-6K-oD9">
-                                <rect key="frame" x="273" y="415" width="55" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="Gly-Zu-AwM"/>
-                                    <constraint firstAttribute="width" constant="55" id="Hma-2p-ZGb"/>
-                                </constraints>
-                                <state key="normal" image="Stop">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopRecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRg-yh-gkl"/>
-                                </connections>
-                            </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAa-fv-3g3">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <constraints>
@@ -81,17 +68,54 @@
                                 </items>
                                 <color key="barTintColor" red="0.95686274509803915" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-6K-oD9">
+                                <rect key="frame" x="273" y="415" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Gly-Zu-AwM"/>
+                                    <constraint firstAttribute="width" constant="55" id="Hma-2p-ZGb"/>
+                                </constraints>
+                                <state key="normal" image="Stop">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopRecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRg-yh-gkl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ugy-6K-oD9" secondAttribute="bottom" constant="130" id="0EJ-hf-PzU"/>
                             <constraint firstItem="ugy-6K-oD9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2bl-xh-Sp6"/>
+                            <constraint firstItem="ugy-6K-oD9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="K2h-3s-bW9"/>
+                            <constraint firstItem="EW1-E7-VEP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LWG-47-xNO"/>
+                            <constraint firstItem="EW1-E7-VEP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="OcN-mL-iDM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VAa-fv-3g3" secondAttribute="trailing" constant="-20" id="P3l-oD-SHD"/>
                             <constraint firstItem="EW1-E7-VEP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="UKc-cV-dKd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ugy-6K-oD9" secondAttribute="trailing" constant="70" id="W3x-TY-Qot"/>
                             <constraint firstItem="EW1-E7-VEP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XwK-O7-hEU"/>
                             <constraint firstItem="VAa-fv-3g3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="huQ-PJ-ANG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VAa-fv-3g3" secondAttribute="bottom" id="zL3-zV-ecI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LWG-47-xNO"/>
+                                <exclude reference="OcN-mL-iDM"/>
+                                <exclude reference="K2h-3s-bW9"/>
+                                <exclude reference="W3x-TY-Qot"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="LWG-47-xNO"/>
+                                <include reference="OcN-mL-iDM"/>
+                                <exclude reference="UKc-cV-dKd"/>
+                                <exclude reference="XwK-O7-hEU"/>
+                                <exclude reference="2bl-xh-Sp6"/>
+                                <include reference="K2h-3s-bW9"/>
+                                <include reference="W3x-TY-Qot"/>
+                                <exclude reference="0EJ-hf-PzU"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Voice Pimp" id="vNB-UC-gzY"/>
                     <connections>
