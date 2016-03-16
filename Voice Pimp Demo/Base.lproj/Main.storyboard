@@ -188,52 +188,8 @@
                                 </items>
                                 <color key="barTintColor" red="0.95686274510000002" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIf-nr-U4p" userLabel="LeftTopStackView">
-                                <rect key="frame" x="55" y="79" width="100" height="469"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="95"/>
-                                        <state key="normal" image="Chipmunk">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
-                                        <rect key="frame" x="0.0" y="125" width="100" height="95"/>
-                                        <state key="normal" image="Parrot">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="0th-rA-xj0"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
-                                        <rect key="frame" x="0.0" y="250" width="100" height="94"/>
-                                        <state key="normal" image="Cosmic">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="FBu-K6-kLU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
-                                        <rect key="frame" x="0.0" y="374" width="100" height="95"/>
-                                        <state key="normal" image="Hare">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playbackFast:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Yvr-To-BgX"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="k7Q-3G-vIo"/>
-                                </constraints>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-wl-zIQ" userLabel="RightBottomStackView">
-                                <rect key="frame" x="445" y="79" width="100" height="469"/>
+                                <rect key="frame" x="455" y="79" width="100" height="469"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="95"/>
@@ -273,22 +229,128 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="K4F-Kd-TnX"/>
                                     <constraint firstAttribute="width" constant="100" id="Ubh-Ft-Nky"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="K4F-Kd-TnX"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="41">
+                                    <mask key="constraints">
+                                        <include reference="K4F-Kd-TnX"/>
+                                        <exclude reference="Ubh-Ft-Nky"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIf-nr-U4p" userLabel="LeftTopStackView">
+                                <rect key="frame" x="45" y="79" width="100" height="469"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="95"/>
+                                        <state key="normal" image="Chipmunk">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
+                                        <rect key="frame" x="0.0" y="125" width="100" height="95"/>
+                                        <state key="normal" image="Parrot">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="93" y="0.0" width="52" height="90"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="0th-rA-xj0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
+                                        <rect key="frame" x="0.0" y="250" width="100" height="94"/>
+                                        <state key="normal" image="Cosmic">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="FBu-K6-kLU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
+                                        <rect key="frame" x="0.0" y="374" width="100" height="95"/>
+                                        <state key="normal" image="Hare">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="278" y="0.0" width="52" height="90"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="playbackFast:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Yvr-To-BgX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="AlN-9W-iWi"/>
+                                    <constraint firstAttribute="width" constant="100" id="k7Q-3G-vIo"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="AlN-9W-iWi"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="40">
+                                    <mask key="constraints">
+                                        <include reference="AlN-9W-iWi"/>
+                                        <exclude reference="k7Q-3G-vIo"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="OIf-nr-U4p" secondAttribute="trailing" constant="15" id="1PU-8H-B4L"/>
+                            <constraint firstItem="OIf-nr-U4p" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="15" id="3bj-zS-PUq"/>
+                            <constraint firstItem="YPr-wl-zIQ" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="15" id="5zZ-VA-Lwb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zQf-PA-0Dk" secondAttribute="trailing" constant="-20" id="Ie1-Pm-REJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YPr-wl-zIQ" secondAttribute="trailing" constant="15" id="JRd-BV-U9M"/>
+                            <constraint firstItem="OIf-nr-U4p" firstAttribute="top" secondItem="Kza-ab-Kg9" secondAttribute="bottom" constant="20" id="L6M-Gf-spK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="YPr-wl-zIQ" secondAttribute="bottom" constant="65" id="Ok5-xL-oFx"/>
                             <constraint firstItem="YPr-wl-zIQ" firstAttribute="top" secondItem="Kza-ab-Kg9" secondAttribute="bottom" constant="15" id="SMG-Nb-vhe"/>
-                            <constraint firstItem="OIf-nr-U4p" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="35" id="WX2-FH-w2d"/>
+                            <constraint firstItem="OIf-nr-U4p" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="25" id="WX2-FH-w2d"/>
                             <constraint firstItem="LAn-rz-ikV" firstAttribute="top" secondItem="zQf-PA-0Dk" secondAttribute="bottom" id="bbk-rU-xJw"/>
                             <constraint firstItem="OIf-nr-U4p" firstAttribute="top" secondItem="Kza-ab-Kg9" secondAttribute="bottom" constant="15" id="bz3-5f-q5X"/>
                             <constraint firstAttribute="bottomMargin" secondItem="YPr-wl-zIQ" secondAttribute="bottom" constant="52" id="ggB-yi-frc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YPr-wl-zIQ" secondAttribute="trailing" constant="35" id="h12-d1-VRP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YPr-wl-zIQ" secondAttribute="trailing" constant="25" id="h12-d1-VRP"/>
                             <constraint firstItem="zQf-PA-0Dk" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="-20" id="p0Z-bz-HY7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="OIf-nr-U4p" secondAttribute="bottom" constant="52" id="qog-0d-UZI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1PU-8H-B4L"/>
+                                <exclude reference="3bj-zS-PUq"/>
+                                <exclude reference="L6M-Gf-spK"/>
+                                <exclude reference="5zZ-VA-Lwb"/>
+                                <exclude reference="JRd-BV-U9M"/>
+                                <exclude reference="Ok5-xL-oFx"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="1PU-8H-B4L"/>
+                                <include reference="3bj-zS-PUq"/>
+                                <include reference="L6M-Gf-spK"/>
+                                <exclude reference="WX2-FH-w2d"/>
+                                <exclude reference="bz3-5f-q5X"/>
+                                <exclude reference="qog-0d-UZI"/>
+                                <include reference="5zZ-VA-Lwb"/>
+                                <include reference="JRd-BV-U9M"/>
+                                <include reference="Ok5-xL-oFx"/>
+                                <exclude reference="SMG-Nb-vhe"/>
+                                <exclude reference="ggB-yi-frc"/>
+                                <exclude reference="h12-d1-VRP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsTableVC" id="fsU-cg-XLG"/>
