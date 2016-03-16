@@ -39,6 +39,9 @@ class RecordSoundsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        //TODO: disable segue to saved audio button if savedAudio array is empty
+        
         self.stopButton.hidden = true
         self.recordButton.enabled = true
         self.recordPrompt.text = "Tap above to start recording"

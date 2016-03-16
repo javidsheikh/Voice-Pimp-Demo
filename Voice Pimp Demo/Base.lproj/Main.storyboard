@@ -64,6 +64,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JPp-dH-ATB"/>
                                     <barButtonItem title="Saved Audio" id="uFd-DV-L9L">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="7Tl-Dl-Z1Q" kind="show" id="Q33-0M-Rnb"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" red="0.95686274509803915" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,10 +121,10 @@
                                 <include reference="OcN-mL-iDM"/>
                                 <exclude reference="UKc-cV-dKd"/>
                                 <exclude reference="XwK-O7-hEU"/>
-                                <exclude reference="0EJ-hf-PzU"/>
                                 <exclude reference="2bl-xh-Sp6"/>
                                 <include reference="K2h-3s-bW9"/>
                                 <include reference="W3x-TY-Qot"/>
+                                <exclude reference="0EJ-hf-PzU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -130,10 +133,10 @@
                                 <include reference="VN0-ck-bHz"/>
                                 <exclude reference="XwK-O7-hEU"/>
                                 <include reference="vLA-Ja-txf"/>
-                                <exclude reference="0EJ-hf-PzU"/>
                                 <exclude reference="2bl-xh-Sp6"/>
                                 <include reference="Lm1-hi-JVz"/>
                                 <include reference="b6Z-x8-5lG"/>
+                                <exclude reference="0EJ-hf-PzU"/>
                             </mask>
                         </variation>
                     </view>
@@ -163,80 +166,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
-                                <rect key="frame" x="44" y="210" width="100" height="100"/>
-                                <state key="normal" image="Parrot">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="0th-rA-xj0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
-                                <rect key="frame" x="44" y="328" width="100" height="100"/>
-                                <state key="normal" image="Cosmic">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="FBu-K6-kLU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
-                                <rect key="frame" x="230" y="328" width="100" height="100"/>
-                                <state key="normal" image="Broken">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playbackBroken:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Kjo-RL-0M9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
-                                <rect key="frame" x="230" y="210" width="100" height="100"/>
-                                <state key="normal" image="Cellphone">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playbackCellphone:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="2En-Gy-eJp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
-                                <rect key="frame" x="44" y="444" width="100" height="100"/>
-                                <state key="normal" image="Hare">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playbackFast:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Yvr-To-BgX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
-                                <rect key="frame" x="230" y="444" width="100" height="100"/>
-                                <state key="normal" image="Tortoise">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playbackSlow:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Nf7-R6-oiQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
-                                <rect key="frame" x="230" y="95" width="100" height="100"/>
-                                <state key="normal" image="Vader">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
-                                <rect key="frame" x="44" y="95" width="100" height="100"/>
-                                <state key="normal" image="Chipmunk">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
-                                </connections>
-                            </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zQf-PA-0Dk">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQf-PA-0Dk">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Nma-nX-DbK"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="Stop" id="Fqy-wG-ohf">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,8 +188,107 @@
                                 </items>
                                 <color key="barTintColor" red="0.95686274510000002" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="OIf-nr-U4p" userLabel="LeftTopStackView">
+                                <rect key="frame" x="55" y="79" width="100" height="469"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="95"/>
+                                        <state key="normal" image="Chipmunk">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackChipmunk:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="hJm-Go-OYy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
+                                        <rect key="frame" x="0.0" y="125" width="100" height="95"/>
+                                        <state key="normal" image="Parrot">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="0th-rA-xj0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
+                                        <rect key="frame" x="0.0" y="250" width="100" height="94"/>
+                                        <state key="normal" image="Cosmic">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackCosmic:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="FBu-K6-kLU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
+                                        <rect key="frame" x="0.0" y="374" width="100" height="95"/>
+                                        <state key="normal" image="Hare">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackFast:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Yvr-To-BgX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="k7Q-3G-vIo"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-wl-zIQ" userLabel="RightBottomStackView">
+                                <rect key="frame" x="445" y="79" width="100" height="469"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="95"/>
+                                        <state key="normal" image="Vader">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
+                                        <rect key="frame" x="0.0" y="125" width="100" height="95"/>
+                                        <state key="normal" image="Cellphone">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackCellphone:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="2En-Gy-eJp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
+                                        <rect key="frame" x="0.0" y="250" width="100" height="94"/>
+                                        <state key="normal" image="Broken">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackBroken:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Kjo-RL-0M9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
+                                        <rect key="frame" x="0.0" y="374" width="100" height="95"/>
+                                        <state key="normal" image="Tortoise">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playbackSlow:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Nf7-R6-oiQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Ubh-Ft-Nky"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="zQf-PA-0Dk" secondAttribute="trailing" constant="-20" id="Ie1-Pm-REJ"/>
+                            <constraint firstItem="YPr-wl-zIQ" firstAttribute="top" secondItem="Kza-ab-Kg9" secondAttribute="bottom" constant="15" id="SMG-Nb-vhe"/>
+                            <constraint firstItem="OIf-nr-U4p" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="35" id="WX2-FH-w2d"/>
+                            <constraint firstItem="LAn-rz-ikV" firstAttribute="top" secondItem="zQf-PA-0Dk" secondAttribute="bottom" id="bbk-rU-xJw"/>
+                            <constraint firstItem="OIf-nr-U4p" firstAttribute="top" secondItem="Kza-ab-Kg9" secondAttribute="bottom" constant="15" id="bz3-5f-q5X"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="YPr-wl-zIQ" secondAttribute="bottom" constant="52" id="ggB-yi-frc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YPr-wl-zIQ" secondAttribute="trailing" constant="35" id="h12-d1-VRP"/>
+                            <constraint firstItem="zQf-PA-0Dk" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="-20" id="p0Z-bz-HY7"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="OIf-nr-U4p" secondAttribute="bottom" constant="52" id="qog-0d-UZI"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsTableVC" id="fsU-cg-XLG"/>
@@ -265,10 +298,10 @@
             </objects>
             <point key="canvasLocation" x="2315" y="117"/>
         </scene>
-        <!--Saved Sounds-->
+        <!--Saved Audio-->
         <scene sceneID="Wfv-s4-UyU">
             <objects>
-                <tableViewController title="Saved Sounds" id="7Tl-Dl-Z1Q" customClass="SavedSoundsTableViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Saved Audio" id="7Tl-Dl-Z1Q" customClass="SavedSoundsTableViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="141" sectionHeaderHeight="28" sectionFooterHeight="28" id="a40-FY-HNh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,4 +397,7 @@
         <image name="Tortoise" width="174" height="174"/>
         <image name="Vader" width="174" height="174"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fsU-cg-XLG"/>
+    </inferredMetricsTieBreakers>
 </document>
