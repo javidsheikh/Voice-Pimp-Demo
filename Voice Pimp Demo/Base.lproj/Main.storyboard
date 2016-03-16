@@ -237,7 +237,7 @@
                                         <exclude reference="K4F-Kd-TnX"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="41">
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="55">
                                     <mask key="constraints">
                                         <include reference="K4F-Kd-TnX"/>
                                         <exclude reference="Ubh-Ft-Nky"/>
@@ -262,7 +262,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="93" y="0.0" width="52" height="90"/>
+                                            <rect key="frame" x="96" y="0.0" width="42" height="90"/>
                                         </variation>
                                         <connections>
                                             <action selector="playbackEcho:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="0th-rA-xj0"/>
@@ -283,7 +283,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="278" y="0.0" width="52" height="90"/>
+                                            <rect key="frame" x="289" y="0.0" width="41" height="90"/>
                                         </variation>
                                         <connections>
                                             <action selector="playbackFast:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Yvr-To-BgX"/>
@@ -299,7 +299,7 @@
                                         <exclude reference="AlN-9W-iWi"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="40">
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="55">
                                     <mask key="constraints">
                                         <include reference="AlN-9W-iWi"/>
                                         <exclude reference="k7Q-3G-vIo"/>
