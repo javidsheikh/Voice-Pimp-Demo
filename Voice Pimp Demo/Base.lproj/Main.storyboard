@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Voice Pimp-->
@@ -14,20 +15,52 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toB-5P-Oy8">
-                                <rect key="frame" x="137" y="149" width="100" height="219"/>
-                                <state key="normal" image="Microphone">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hi0-h1-E4E"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-6K-oD9">
-                                <rect key="frame" x="152" y="469" width="71" height="70"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EW1-E7-VEP" userLabel="RecordingContainer">
+                                <rect key="frame" x="180" y="150" width="240" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap above to start recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osh-PL-xso">
+                                        <rect key="frame" x="5" y="156" width="230" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="SM4-I8-Azb"/>
+                                            <constraint firstAttribute="width" constant="230" id="nKW-Hk-JfG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                        <color key="textColor" red="0.12941176470588237" green="0.10588235294117647" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toB-5P-Oy8">
+                                        <rect key="frame" x="90" y="13" width="60" height="135"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="1Yt-SO-MZu"/>
+                                            <constraint firstAttribute="height" constant="135" id="gaJ-kf-b8N"/>
+                                        </constraints>
+                                        <state key="normal" image="Microphone">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hi0-h1-E4E"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="toB-5P-Oy8" firstAttribute="centerX" secondItem="EW1-E7-VEP" secondAttribute="centerX" id="11d-6i-S1T"/>
+                                    <constraint firstAttribute="height" constant="200" id="7Cz-p1-VrB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Osh-PL-xso" secondAttribute="bottom" constant="14" id="Hij-jN-mVa"/>
+                                    <constraint firstItem="Osh-PL-xso" firstAttribute="top" secondItem="toB-5P-Oy8" secondAttribute="bottom" constant="8" id="UTn-g5-izX"/>
+                                    <constraint firstItem="Osh-PL-xso" firstAttribute="centerX" secondItem="EW1-E7-VEP" secondAttribute="centerX" id="ivw-Pe-vTT"/>
+                                    <constraint firstAttribute="width" constant="240" id="xI6-g8-3Hd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-6K-oD9">
+                                <rect key="frame" x="273" y="415" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Gly-Zu-AwM"/>
+                                    <constraint firstAttribute="width" constant="55" id="Hma-2p-ZGb"/>
+                                </constraints>
                                 <state key="normal" image="Stop">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -35,30 +68,32 @@
                                     <action selector="stopRecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRg-yh-gkl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap above to start recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osh-PL-xso">
-                                <rect key="frame" x="56" y="381" width="262" height="47"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
-                                <color key="textColor" red="0.12941176470588237" green="0.10588235294117647" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ap6-Ug-Tva">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAa-fv-3g3">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="V9K-Gt-ilE"/>
+                                </constraints>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sjO-uL-1Uk"/>
-                                    <barButtonItem title="Saved Sounds" id="XRC-Xp-C4l">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JPp-dH-ATB"/>
+                                    <barButtonItem title="Saved Audio" id="uFd-DV-L9L">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsVC" id="3bH-FH-55f"/>
-                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" red="0.95686274509803915" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="0.38589888369999997" green="0.51986655169999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ugy-6K-oD9" secondAttribute="bottom" constant="130" id="0EJ-hf-PzU"/>
+                            <constraint firstItem="ugy-6K-oD9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2bl-xh-Sp6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VAa-fv-3g3" secondAttribute="trailing" constant="-20" id="P3l-oD-SHD"/>
+                            <constraint firstItem="EW1-E7-VEP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="UKc-cV-dKd"/>
+                            <constraint firstItem="EW1-E7-VEP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XwK-O7-hEU"/>
+                            <constraint firstItem="VAa-fv-3g3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="huQ-PJ-ANG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VAa-fv-3g3" secondAttribute="bottom" id="zL3-zV-ecI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Voice Pimp" id="vNB-UC-gzY"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="recordButton" destination="toB-5P-Oy8" id="uGJ-Rt-wee"/>
                         <outlet property="recordPrompt" destination="Osh-PL-xso" id="Xli-qe-XDa"/>
@@ -70,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631.5" y="456.5"/>
+            <point key="canvasLocation" x="1631" y="456"/>
         </scene>
         <!--Add Effects-->
         <scene sceneID="AaN-oV-ws7">
@@ -81,7 +116,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LAn-rz-ikV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Gi-lg-LBM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
@@ -178,30 +213,29 @@
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsTableVC" id="fsU-cg-XLG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYP-Gk-qpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184.5" y="83.5"/>
+            <point key="canvasLocation" x="2315" y="117"/>
         </scene>
         <!--Saved Sounds-->
         <scene sceneID="Wfv-s4-UyU">
             <objects>
                 <tableViewController title="Saved Sounds" id="7Tl-Dl-Z1Q" customClass="SavedSoundsTableViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="141" sectionHeaderHeight="28" sectionFooterHeight="28" id="a40-FY-HNh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="141" id="wzr-zg-qk3" customClass="TableViewCell" customModule="Voice_Pimp_Demo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="141"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="141"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wzr-zg-qk3" id="xVp-qN-Z8R">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-Dq-Lwv">
@@ -248,18 +282,16 @@
                             <outlet property="delegate" destination="7Tl-Dl-Z1Q" id="iqm-nU-rAk"/>
                         </connections>
                     </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qb6-PT-7op" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2739.5" y="456.5"/>
+            <point key="canvasLocation" x="3001" y="456"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zfr-Fn-Rh8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cDd-gI-QHv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ze4-1S-Qvd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -271,7 +303,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJ6-y7-D3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5" y="456.5"/>
+            <point key="canvasLocation" x="857" y="456"/>
         </scene>
     </scenes>
     <resources>
@@ -288,7 +320,4 @@
         <image name="Tortoise" width="174" height="174"/>
         <image name="Vader" width="174" height="174"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="fsU-cg-XLG"/>
-    </inferredMetricsTieBreakers>
 </document>
