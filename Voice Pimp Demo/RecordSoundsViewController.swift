@@ -20,22 +20,24 @@ class RecordSoundsViewController: UIViewController {
     var iTryAgainSessions = 3
     
     // MARK: IBOutlets
-    @IBOutlet var buttons: [UIButton]!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordPrompt: UILabel!
+    @IBOutlet weak var savedAudioButton: UIBarButtonItem!
     
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Nav bar setup
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 244/255, green: 53/255, blue: 53/255, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 24)!]
         
-        for button in self.buttons {
-            button.layer.cornerRadius = 50
-        }
+        // Toolbar setup
+        self.navigationController?.toolbar.barTintColor = UIColor(red: 244/255, green: 53/255, blue: 53/255, alpha: 1)
+        self.navigationController?.toolbar.tintColor = UIColor.whiteColor()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -119,6 +121,10 @@ class RecordSoundsViewController: UIViewController {
         }
     }
 
+    @IBAction func segueToSavedAudio(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("segueToSavedSoundsVC", sender: self)
+    }
+    
     // MARK: Helper functions
     func createAudioFileURL() -> NSURL {
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String

@@ -31,9 +31,6 @@ class SavedSoundsTableViewController: UITableViewController {
 
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
-        let popToRecordVCButton = UIBarButtonItem(title: "Record More", style: .Plain, target: self, action: Selector("popToRecordVC"))
-        self.navigationItem.rightBarButtonItem = popToRecordVCButton
-        
         self.tableView.reloadData()
     }
 
@@ -95,7 +92,7 @@ class SavedSoundsTableViewController: UITableViewController {
     }
     
     // MARK: Helper functions
-    func popToRecordVC() {
+    @IBAction func popToRecordVC(sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 

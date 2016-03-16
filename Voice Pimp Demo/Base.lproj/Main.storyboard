@@ -55,24 +55,8 @@
                                     <constraint firstAttribute="width" constant="240" id="xI6-g8-3Hd"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAa-fv-3g3">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="V9K-Gt-ilE"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JPp-dH-ATB"/>
-                                    <barButtonItem title="Saved Audio" id="uFd-DV-L9L">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="7Tl-Dl-Z1Q" kind="show" id="Q33-0M-Rnb"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.95686274509803915" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-6K-oD9">
-                                <rect key="frame" x="273" y="415" width="55" height="55"/>
+                                <rect key="frame" x="273" y="411" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Gly-Zu-AwM"/>
                                     <constraint firstAttribute="width" constant="55" id="Hma-2p-ZGb"/>
@@ -87,21 +71,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.49019607843137253" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ugy-6K-oD9" secondAttribute="bottom" constant="130" id="0EJ-hf-PzU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ugy-6K-oD9" secondAttribute="bottom" constant="90" id="0EJ-hf-PzU"/>
                             <constraint firstItem="ugy-6K-oD9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2bl-xh-Sp6"/>
                             <constraint firstItem="ugy-6K-oD9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="K2h-3s-bW9"/>
                             <constraint firstItem="EW1-E7-VEP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LWG-47-xNO"/>
                             <constraint firstItem="ugy-6K-oD9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lm1-hi-JVz"/>
                             <constraint firstItem="EW1-E7-VEP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="OcN-mL-iDM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VAa-fv-3g3" secondAttribute="trailing" constant="-20" id="P3l-oD-SHD"/>
                             <constraint firstItem="EW1-E7-VEP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="UKc-cV-dKd"/>
                             <constraint firstItem="EW1-E7-VEP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VN0-ck-bHz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ugy-6K-oD9" secondAttribute="trailing" constant="70" id="W3x-TY-Qot"/>
                             <constraint firstItem="EW1-E7-VEP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XwK-O7-hEU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ugy-6K-oD9" secondAttribute="trailing" constant="185" id="b6Z-x8-5lG"/>
-                            <constraint firstItem="VAa-fv-3g3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="huQ-PJ-ANG"/>
                             <constraint firstItem="EW1-E7-VEP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="105" id="vLA-Ja-txf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VAa-fv-3g3" secondAttribute="bottom" id="zL3-zV-ecI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -140,14 +121,22 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xgb-qn-vgM"/>
+                        <barButtonItem title="Saved Audio" id="bL2-Pr-Z8c">
+                            <connections>
+                                <action selector="segueToSavedAudio:" destination="BYZ-38-t0r" id="xyy-3y-XEr"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Voice Pimp" id="vNB-UC-gzY"/>
                     <connections>
                         <outlet property="recordButton" destination="toB-5P-Oy8" id="uGJ-Rt-wee"/>
                         <outlet property="recordPrompt" destination="Osh-PL-xso" id="Xli-qe-XDa"/>
+                        <outlet property="savedAudioButton" destination="bL2-Pr-Z8c" id="KQj-Cz-Pc4"/>
                         <outlet property="stopButton" destination="ugy-6K-oD9" id="1Ch-tI-7QD"/>
-                        <outletCollection property="buttons" destination="ugy-6K-oD9" collectionClass="NSMutableArray" id="rgZ-pJ-L0T"/>
-                        <outletCollection property="buttons" destination="toB-5P-Oy8" collectionClass="NSMutableArray" id="HU3-qh-XoR"/>
                         <segue destination="jaX-xU-ZCU" kind="show" identifier="segueToPlaySoundsVC" id="CA7-oF-Tvp"/>
+                        <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsVC" id="hOA-WN-2lS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,28 +155,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQf-PA-0Dk">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Nma-nX-DbK"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Stop" id="Fqy-wG-ohf">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="stopPlaybackRecord:" destination="jaX-xU-ZCU" id="y0s-55-FQ3"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="C89-zw-345"/>
-                                    <barButtonItem systemItem="save" id="HHA-Z7-vCC">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="savePlaybackRecord:" destination="jaX-xU-ZCU" id="z8U-0r-GGG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.95686274510000002" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-wl-zIQ" userLabel="RightBottomStackView">
                                 <rect key="frame" x="455" y="79" width="100" height="469"/>
                                 <subviews>
@@ -324,7 +291,6 @@
                             <constraint firstItem="OIf-nr-U4p" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="15" id="3bj-zS-PUq"/>
                             <constraint firstItem="YPr-wl-zIQ" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="15" id="5zZ-VA-Lwb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YPr-wl-zIQ" secondAttribute="trailing" constant="25" id="7Um-oB-cMM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zQf-PA-0Dk" secondAttribute="trailing" constant="-20" id="Ie1-Pm-REJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YPr-wl-zIQ" secondAttribute="trailing" constant="15" id="JRd-BV-U9M"/>
                             <constraint firstItem="OIf-nr-U4p" firstAttribute="top" secondItem="Kza-ab-Kg9" secondAttribute="bottom" constant="20" id="L6M-Gf-spK"/>
                             <constraint firstAttribute="bottomMargin" secondItem="YPr-wl-zIQ" secondAttribute="bottom" constant="70" id="Lpz-fG-xLW"/>
@@ -332,12 +298,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="OIf-nr-U4p" secondAttribute="trailing" constant="25" id="Rxo-4n-L6y"/>
                             <constraint firstItem="YPr-wl-zIQ" firstAttribute="top" secondItem="Kza-ab-Kg9" secondAttribute="bottom" constant="15" id="SMG-Nb-vhe"/>
                             <constraint firstItem="OIf-nr-U4p" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="25" id="WX2-FH-w2d"/>
-                            <constraint firstItem="LAn-rz-ikV" firstAttribute="top" secondItem="zQf-PA-0Dk" secondAttribute="bottom" id="bbk-rU-xJw"/>
                             <constraint firstItem="OIf-nr-U4p" firstAttribute="top" secondItem="Kza-ab-Kg9" secondAttribute="bottom" constant="15" id="bz3-5f-q5X"/>
                             <constraint firstItem="YPr-wl-zIQ" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="25" id="ekA-bQ-yH6"/>
                             <constraint firstAttribute="bottomMargin" secondItem="YPr-wl-zIQ" secondAttribute="bottom" constant="52" id="ggB-yi-frc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YPr-wl-zIQ" secondAttribute="trailing" constant="25" id="h12-d1-VRP"/>
-                            <constraint firstItem="zQf-PA-0Dk" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="-20" id="p0Z-bz-HY7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="OIf-nr-U4p" secondAttribute="bottom" constant="52" id="qog-0d-UZI"/>
                             <constraint firstItem="OIf-nr-U4p" firstAttribute="leading" secondItem="5Gi-lg-LBM" secondAttribute="leadingMargin" constant="25" id="rcC-gf-0ta"/>
                         </constraints>
@@ -390,6 +354,19 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Stop" id="wBC-Kw-jua">
+                            <connections>
+                                <action selector="stopPlaybackRecord:" destination="jaX-xU-ZCU" id="8lM-OW-fM5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="LUx-l5-1mz"/>
+                        <barButtonItem systemItem="save" id="ezN-aM-djg">
+                            <connections>
+                                <action selector="savePlaybackRecord:" destination="jaX-xU-ZCU" id="IgC-iV-xjg"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <connections>
                         <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsTableVC" id="fsU-cg-XLG"/>
                     </connections>
@@ -523,6 +500,14 @@
                             <outlet property="delegate" destination="7Tl-Dl-Z1Q" id="iqm-nU-rAk"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="uxz-dP-Y9Z"/>
+                        <barButtonItem title="Record More" id="3GX-qv-YaT">
+                            <connections>
+                                <action selector="popToRecordVC:" destination="7Tl-Dl-Z1Q" id="TmN-aV-a2o"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qb6-PT-7op" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -531,13 +516,17 @@
         <!--Navigation Controller-->
         <scene sceneID="zfr-Fn-Rh8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cDd-gI-QHv" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="cDd-gI-QHv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ze4-1S-Qvd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="aOI-0f-EHM">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dGG-rZ-kQ0"/>
                     </connections>
