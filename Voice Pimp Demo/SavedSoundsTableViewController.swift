@@ -67,7 +67,6 @@ class SavedSoundsTableViewController: UITableViewController {
     // Rows
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
-        cell.cellImage.image = UIImage(named: "megaphone-clip-art.png")
         let audioInstance = savedAudio[indexPath.row]
         cell.cellTitle.text = audioInstance.title
         cell.cellDate.text = audioInstance.date
