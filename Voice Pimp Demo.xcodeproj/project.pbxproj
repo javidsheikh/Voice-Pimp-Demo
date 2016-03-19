@@ -17,7 +17,6 @@
 		F9C467C21C7778A5004B21EE /* SavedSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C467C11C7778A5004B21EE /* SavedSoundsTableViewController.swift */; };
 		F9DB52551C88A23100583372 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DB52541C88A23100583372 /* AudioEngine.swift */; };
 		F9FDC0DC1C78B9D600457D7C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDC0DB1C78B9D600457D7C /* TableViewCell.swift */; };
-		F9FDC0DE1C78BC2A00457D7C /* megaphone-clip-art.png in Resources */ = {isa = PBXBuildFile; fileRef = F9FDC0DD1C78BC2A00457D7C /* megaphone-clip-art.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		F9C467C11C7778A5004B21EE /* SavedSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedSoundsTableViewController.swift; sourceTree = "<group>"; };
 		F9DB52541C88A23100583372 /* AudioEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
 		F9FDC0DB1C78B9D600457D7C /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		F9FDC0DD1C78BC2A00457D7C /* megaphone-clip-art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "megaphone-clip-art.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,6 @@
 				F97DE2A01C74CD8D00AED138 /* AppDelegate.swift */,
 				F97DE2A41C74CD8D00AED138 /* Main.storyboard */,
 				F97DE2A71C74CD8D00AED138 /* Assets.xcassets */,
-				F9FDC0DD1C78BC2A00457D7C /* megaphone-clip-art.png */,
 				F97DE2A91C74CD8D00AED138 /* LaunchScreen.storyboard */,
 				F97DE2AC1C74CD8D00AED138 /* Info.plist */,
 			);
@@ -166,7 +163,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F97DE2AB1C74CD8D00AED138 /* LaunchScreen.storyboard in Resources */,
-				F9FDC0DE1C78BC2A00457D7C /* megaphone-clip-art.png in Resources */,
 				F965CD8B1C9C745B005561AF /* Assets.xcassets in Resources */,
 				F97DE2A61C74CD8D00AED138 /* Main.storyboard in Resources */,
 			);

@@ -157,10 +157,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-wl-zIQ" userLabel="RightBottomStackView">
-                                <rect key="frame" x="381" y="79" width="174" height="469"/>
+                                <rect key="frame" x="405" y="79" width="150" height="469"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="91"/>
                                         <state key="normal" image="Vader">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -172,7 +172,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
-                                        <rect key="frame" x="0.0" y="126" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="126" width="150" height="91"/>
                                         <state key="normal" image="Cellphone">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -184,7 +184,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
-                                        <rect key="frame" x="0.0" y="252" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="252" width="150" height="91"/>
                                         <state key="normal" image="Broken">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -196,7 +196,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
-                                        <rect key="frame" x="0.0" y="378" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="378" width="150" height="91"/>
                                         <state key="normal" image="Tortoise">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -212,10 +212,10 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal" spacing="65"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="OIf-nr-U4p" userLabel="LeftTopStackView">
-                                <rect key="frame" x="45" y="79" width="174" height="469"/>
+                                <rect key="frame" x="45" y="79" width="150" height="469"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-kL-ewg">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="91"/>
                                         <state key="normal" image="Chipmunk">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -224,7 +224,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nst-lS-lMk">
-                                        <rect key="frame" x="0.0" y="126" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="126" width="150" height="91"/>
                                         <state key="normal" image="Parrot">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -233,7 +233,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-cR-yen">
-                                        <rect key="frame" x="0.0" y="252" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="252" width="150" height="91"/>
                                         <state key="normal" image="Cosmic">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -242,7 +242,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-XH-LMF">
-                                        <rect key="frame" x="0.0" y="378" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="378" width="150" height="91"/>
                                         <state key="normal" image="Hare">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -526,18 +526,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Broken" width="174" height="174"/>
-        <image name="Cellphone" width="174" height="174"/>
-        <image name="Chipmunk" width="174" height="174"/>
-        <image name="Cosmic" width="174" height="174"/>
-        <image name="Hare" width="174" height="174"/>
-        <image name="Microphone" width="240" height="531"/>
-        <image name="Parrot" width="174" height="174"/>
+        <image name="Broken" width="150" height="150"/>
+        <image name="Cellphone" width="150" height="150"/>
+        <image name="Chipmunk" width="150" height="150"/>
+        <image name="Cosmic" width="150" height="150"/>
+        <image name="Hare" width="150" height="150"/>
+        <image name="Microphone" width="150" height="300"/>
+        <image name="Parrot" width="150" height="150"/>
         <image name="Play" width="55" height="55"/>
         <image name="Share" width="139" height="135"/>
-        <image name="Stop" width="179" height="179"/>
-        <image name="Tortoise" width="174" height="174"/>
-        <image name="Vader" width="174" height="174"/>
+        <image name="Stop" width="100" height="100"/>
+        <image name="Tortoise" width="150" height="150"/>
+        <image name="Vader" width="150" height="150"/>
         <image name="VoicePimp" width="142" height="142"/>
     </resources>
     <inferredMetricsTieBreakers>
