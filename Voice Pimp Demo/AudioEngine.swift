@@ -26,7 +26,6 @@ class AudioEngine: NSObject {
     var loopBuffer: AVAudioPCMBuffer!
     
     var mixerOutputFileURL: NSURL?
-    var waaMixerOutputFileURL: NSURL?
     var isRecording: Bool = false
     
     var activePlayer = ActivePlayer.None
@@ -129,13 +128,8 @@ class AudioEngine: NSObject {
             mixerOutputFileURL = audioFileURL(".aac")
         }
         
-        if waaMixerOutputFileURL == nil {
-            waaMixerOutputFileURL = audioFileURL(".aac")
-        }
-        
         let mainMixer = engine.mainMixerNode
         let mixerOutputFile: AVAudioFile
-        let waaMixerOutputFile: AVAudioFile
         
         // Recording settings
         let recordSettings:[String : AnyObject] = [
@@ -147,7 +141,6 @@ class AudioEngine: NSObject {
         ]
         do {
             mixerOutputFile = try AVAudioFile(forWriting: mixerOutputFileURL!, settings: recordSettings)
-            waaMixerOutputFile = try AVAudioFile(forWriting: waaMixerOutputFileURL!, settings: recordSettings)
         } catch let error as NSError {
             fatalError("mixerOutputFile is nil, \(error.localizedDescription)")
         }
@@ -156,7 +149,6 @@ class AudioEngine: NSObject {
         mainMixer.installTapOnBus(0, bufferSize: 4096, format: mainMixer.outputFormatForBus(0)) {buffer, when in
             do {
                 try mixerOutputFile.writeFromBuffer(buffer)
-                try waaMixerOutputFile.writeFromBuffer(buffer)
             } catch let error as NSError {
                 fatalError("error writing buffer data to file, \(error.localizedDescription)")
             } catch _ {
