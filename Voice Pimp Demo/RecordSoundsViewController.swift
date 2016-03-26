@@ -31,11 +31,13 @@ class RecordSoundsViewController: UIViewController {
         
         // Nav bar setup
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 53/255, blue: 53/255, alpha: 1)
+        self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 24)!]
         
         // Toolbar setup
         self.navigationController?.toolbar.barTintColor = UIColor(red: 255/255, green: 53/255, blue: 53/255, alpha: 1)
+        self.navigationController?.toolbar.translucent = false
         self.navigationController?.toolbar.tintColor = UIColor.whiteColor()
         
     }

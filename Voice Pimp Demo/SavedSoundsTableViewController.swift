@@ -29,7 +29,7 @@ class SavedSoundsTableViewController: UITableViewController {
             savedAudio = array
         }
 
-//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.tableView.reloadData()
     }
