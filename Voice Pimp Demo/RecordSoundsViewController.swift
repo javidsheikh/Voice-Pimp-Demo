@@ -150,6 +150,7 @@ class RecordSoundsViewController: UIViewController {
     func showRateMe() {
         let alert = UIAlertController(title: "Rate Us", message: "Do you love Voice Pimp? Please rate us on the app store.", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Rate Voice Pimp", style: UIAlertActionStyle.Default, handler: { alertAction in
+            // TODO: Add iTunes Connect App ID
             //            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<iTUNES CONNECT APP ID>")!)
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
             // TODO: Amend URL
