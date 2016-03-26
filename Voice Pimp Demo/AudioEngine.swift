@@ -126,11 +126,11 @@ class AudioEngine: NSObject {
     func startRecordingMixerOutput() {
         // install a tap on the main mixer output bus and write output buffers to file
         if mixerOutputFileURL == nil {
-            mixerOutputFileURL = audioFileURL(".mp4")
+            mixerOutputFileURL = audioFileURL(".aac")
         }
         
         if waaMixerOutputFileURL == nil {
-            waaMixerOutputFileURL = audioFileURL(".mp4.waa")
+            waaMixerOutputFileURL = audioFileURL(".aac")
         }
         
         let mainMixer = engine.mainMixerNode
