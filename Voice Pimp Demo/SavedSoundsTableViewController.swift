@@ -44,6 +44,7 @@ class SavedSoundsTableViewController: UITableViewController {
         let audioInstance = self.savedAudio[sender.tag] as RecordedAudio
         self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.aacURL)
         self.documentInteractionController.delegate = self
+        self.documentInteractionController.name = audioInstance.title
         self.documentInteractionController.presentPreviewAnimated(true)
     }
     
@@ -107,5 +108,6 @@ extension SavedSoundsTableViewController: UIDocumentInteractionControllerDelegat
             return self
         }
     }
+
 }
 
