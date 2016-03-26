@@ -15,9 +15,16 @@ class RecordSoundsViewController: UIViewController {
     
     var recorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
+    var savedAudio: [RecordedAudio]!
     
     var iMinSessions = 5
     var iTryAgainSessions = 3
+    
+    var filePath : String {
+        let manager = NSFileManager.defaultManager()
+        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! as NSURL
+        return url.URLByAppendingPathComponent("savedAudioArray").path!
+    }
     
     // MARK: IBOutlets
     @IBOutlet weak var recordButton: UIButton!
@@ -45,6 +52,12 @@ class RecordSoundsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         
         //TODO: disable segue to saved audio button if savedAudio array is empty
+        if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [RecordedAudio] {
+            self.savedAudio = array
+            self.savedAudioButton.enabled = true
+        } else {
+            self.savedAudioButton.enabled = false
+        }
         
         self.stopButton.hidden = true
         self.recordButton.enabled = true
