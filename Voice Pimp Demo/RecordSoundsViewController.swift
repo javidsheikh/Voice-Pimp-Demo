@@ -170,7 +170,7 @@ extension RecordSoundsViewController: AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            recordedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), waaURL: NSURL(fileURLWithPath: ""), title: "", date: "")
+            recordedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), title: "", date: "")
             recordedAudio.mp4URL = recorder.url
             recordedAudio.title = recorder.url.lastPathComponent!
             self.performSegueWithIdentifier("segueToPlaySoundsVC", sender: self)

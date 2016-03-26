@@ -232,11 +232,10 @@ class AudioEngine: NSObject {
     
     // MARK: Save functions
     func saveNewAudio(title: String) {
-        let newSavedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), waaURL: NSURL(fileURLWithPath: ""), title: "", date: "")
+        let newSavedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), title: "", date: "")
         
         newSavedAudio.mp4URL = mixerOutputFileURL!
         
-        newSavedAudio.waaURL = waaMixerOutputFileURL!
         
         newSavedAudio.title = title
         
