@@ -42,7 +42,6 @@ class SavedSoundsTableViewController: UITableViewController {
     // MARK: IBActions
     @IBAction func presentPlayController(sender: UIButton) {
         let audioInstance = self.savedAudio[sender.tag] as RecordedAudio
-        print(audioInstance.aacURL)
         self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.aacURL)
         self.documentInteractionController.delegate = self
         self.documentInteractionController.presentPreviewAnimated(true)
@@ -102,7 +101,11 @@ class SavedSoundsTableViewController: UITableViewController {
 extension SavedSoundsTableViewController: UIDocumentInteractionControllerDelegate {
     
     func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
-        return self
+        if let navigationController = self.navigationController {
+            return navigationController
+        } else {
+            return self
+        }
     }
 }
 
