@@ -73,7 +73,7 @@ class AudioEngine: NSObject {
     }
     
     func loadAudioLoop(receivedAudio: RecordedAudio) {
-        let audioLoopURL = receivedAudio.mp4URL
+        let audioLoopURL = receivedAudio.aacURL
         let audioLoopFile: AVAudioFile
         do {
             audioLoopFile = try AVAudioFile(forReading: audioLoopURL)
@@ -224,9 +224,9 @@ class AudioEngine: NSObject {
     
     // MARK: Save functions
     func saveNewAudio(title: String) {
-        let newSavedAudio = RecordedAudio(mp4URL: NSURL(fileURLWithPath: ""), title: "", date: "")
+        let newSavedAudio = RecordedAudio(aacURL: NSURL(fileURLWithPath: ""), title: "", date: "")
         
-        newSavedAudio.mp4URL = mixerOutputFileURL!
+        newSavedAudio.aacURL = mixerOutputFileURL!
         
         
         newSavedAudio.title = title

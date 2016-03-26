@@ -10,12 +10,12 @@ import Foundation
 
 class RecordedAudio: NSObject, NSCoding {
     
-    var mp4URL: NSURL
+    var aacURL: NSURL
     var title: String
     var date: String
 
-    init(mp4URL: NSURL, title: String, date: String) {
-        self.mp4URL = NSURL(fileURLWithPath: "")
+    init(aacURL: NSURL, title: String, date: String) {
+        self.aacURL = NSURL(fileURLWithPath: "")
         self.title = title
         self.date = "dd/mm/yyyy"
     }
@@ -23,13 +23,13 @@ class RecordedAudio: NSObject, NSCoding {
     // MARK: NSCoding
     
     func encodeWithCoder(archiver: NSCoder) {
-        archiver.encodeObject(mp4URL, forKey: "mp4URL")
+        archiver.encodeObject(aacURL, forKey: "aacURL")
         archiver.encodeObject(title, forKey: "title")
         archiver.encodeObject(date, forKey: "date")
     }
     
     required init(coder unarchiver: NSCoder) {
-        mp4URL = unarchiver.decodeObjectForKey("mp4URL") as! NSURL
+        aacURL = unarchiver.decodeObjectForKey("aacURL") as! NSURL
         title = unarchiver.decodeObjectForKey("title") as! String
         date = unarchiver.decodeObjectForKey("date") as! String
     }
