@@ -28,81 +28,79 @@ class PlaySoundsViewController: UIViewController {
         self.engine.startEngine()
     }
 
-//    override func viewWillAppear(animated: Bool) {
-//        self.stopButton.hidden = true
-//        self.saveButton.hidden = true
-//    }
+    override func viewWillAppear(animated: Bool) {
+        self.stopButton.enabled = false
+        self.saveButton.enabled = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-//    // MARK: IBOutlets
-//    @IBOutlet weak var stopButton: UIButton!
-//    @IBOutlet weak var saveButton: UIButton!
+    // MARK: IBOutlets
+    @IBOutlet weak var stopButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     // MARK: IBActions
     @IBAction func playbackChipmunk(sender: UIButton) {
-        engine.playbackPitch(800)
-//        self.stopButton.hidden = false
-//        self.saveButton.hidden = false
+        self.engine.playbackPitch(800)
+        self.stopButton.enabled = true
+        self.saveButton.enabled = true
     }
     
     @IBAction func playbackVader(sender: UIButton) {
-        engine.playbackPitch(-800)
-//        self.stopButton.hidden = false
-//        self.saveButton.hidden = false
+        self.engine.playbackPitch(-800)
+        self.stopButton.enabled = true
+        self.saveButton.enabled = true
     }
     
     @IBAction func playbackEcho(sender: UIButton) {
-        engine.playbackDelay(1.5)
-//        self.stopButton.hidden = false
-//        self.saveButton.hidden = false
+        self.engine.playbackDelay(1.5)
+        self.stopButton.enabled = true
+        self.saveButton.enabled = true
     }
 
     @IBAction func playbackCellphone(sender: UIButton) {
-        engine.playbackDistortion(.MultiCellphoneConcert)
-//        self.stopButton.hidden = false
-//        self.saveButton.hidden = false
+        self.engine.playbackDistortion(.MultiCellphoneConcert)
+        self.stopButton.enabled = true
+        self.saveButton.enabled = true
     }
     
     @IBAction func playbackCosmic(sender: UIButton) {
-        engine.playbackDistortion(.SpeechCosmicInterference)
-//        self.stopButton.hidden = false
-//        self.saveButton.hidden = false
+        self.engine.playbackDistortion(.SpeechCosmicInterference)
+        self.stopButton.enabled = true
+        self.saveButton.enabled = true
     }
     
     @IBAction func playbackBroken(sender: UIButton) {
-        engine.playbackDistortion(.MultiEverythingIsBroken)
-//        self.stopButton.hidden = false
-//        self.saveButton.hidden = false
+        self.engine.playbackDistortion(.MultiEverythingIsBroken)
+        self.stopButton.enabled = true
+        self.saveButton.enabled = true
     }
     
     @IBAction func playbackFast(sender: UIButton) {
-        engine.playbackVarispeed(2.0)
-//        self.stopButton.hidden = false
-//        self.saveButton.hidden = false
+        self.engine.playbackVarispeed(2.0)
+        self.stopButton.enabled = true
+        self.saveButton.enabled = true
     }
     
     @IBAction func playbackSlow(sender: UIButton) {
-        engine.playbackVarispeed(0.7)
-//        self.stopButton.hidden = false
-//        self.saveButton.hidden = false
+        self.engine.playbackVarispeed(0.7)
+        self.stopButton.enabled = true
+        self.saveButton.enabled = true
     }
     
     @IBAction func stopPlaybackRecord(sender: AnyObject) {
-        
         self.engine.stopActivePlayer()
-        
-//        self.stopButton.hidden = true
-//        self.saveButton.hidden = true
+        self.stopButton.enabled = false
+        self.saveButton.enabled = false
     }
     
     @IBAction func savePlaybackRecord(sender: AnyObject) {
-        
         self.engine.stopActivePlayer()
-        
+        self.stopButton.enabled = false
+        self.saveButton.enabled = false
         self.showSaveAlertPopup()
     }
     

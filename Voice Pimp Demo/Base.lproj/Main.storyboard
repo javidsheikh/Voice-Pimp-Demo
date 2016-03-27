@@ -158,7 +158,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-wl-zIQ" userLabel="RightBottomStackView">
                                 <rect key="frame" x="445" y="79" width="110" height="506"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-Oy-ekc">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="104"/>
                                         <state key="normal" image="Vader">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,7 +170,7 @@
                                             <action selector="playbackVader:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="6Hd-vj-QAB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIQ-Yy-oiQ">
                                         <rect key="frame" x="0.0" y="134" width="110" height="104"/>
                                         <state key="normal" image="Cellphone">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,7 +179,7 @@
                                             <action selector="playbackCellphone:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="2En-Gy-eJp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-aq-YqG">
                                         <rect key="frame" x="0.0" y="268" width="110" height="104"/>
                                         <state key="normal" image="Broken">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -191,7 +191,7 @@
                                             <action selector="playbackBroken:" destination="jaX-xU-ZCU" eventType="touchUpInside" id="Kjo-RL-0M9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-1y-IGH">
                                         <rect key="frame" x="0.0" y="402" width="110" height="104"/>
                                         <state key="normal" image="Tortoise">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -353,6 +353,8 @@
                         </barButtonItem>
                     </toolbarItems>
                     <connections>
+                        <outlet property="saveButton" destination="ezN-aM-djg" id="JCp-06-Iaa"/>
+                        <outlet property="stopButton" destination="wBC-Kw-jua" id="CjY-49-aof"/>
                         <segue destination="7Tl-Dl-Z1Q" kind="show" identifier="segueToSavedSoundsTableVC" id="fsU-cg-XLG"/>
                     </connections>
                 </viewController>
@@ -537,6 +539,6 @@
         <image name="VoicePimp" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hOA-WN-2lS"/>
+        <segue reference="fsU-cg-XLG"/>
     </inferredMetricsTieBreakers>
 </document>
