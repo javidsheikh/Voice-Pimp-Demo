@@ -33,10 +33,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toB-5P-Oy8">
-                                        <rect key="frame" x="90" y="13" width="60" height="135"/>
+                                        <rect key="frame" x="85" y="8" width="70" height="140"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="1Yt-SO-MZu"/>
-                                            <constraint firstAttribute="height" constant="135" id="gaJ-kf-b8N"/>
+                                            <constraint firstAttribute="width" constant="70" id="1Yt-SO-MZu"/>
+                                            <constraint firstAttribute="height" constant="140" id="gaJ-kf-b8N"/>
                                         </constraints>
                                         <state key="normal" image="Microphone">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
