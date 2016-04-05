@@ -64,9 +64,10 @@
 		F97DE29F1C74CD8D00AED138 /* Voice Pimp Demo */ = {
 			isa = PBXGroup;
 			children = (
-				F9DB52581C88BA0D00583372 /* View Controllers */,
-				F9DB52591C88BA2E00583372 /* Custom Views */,
-				F9DB525A1C88BA4B00583372 /* Custom Classes */,
+				F9DC28F71CB406D2009C5A74 /* Utility */,
+				F9DB525A1C88BA4B00583372 /* Model */,
+				F9DB52591C88BA2E00583372 /* View */,
+				F9DB52581C88BA0D00583372 /* Controller */,
 				F97DE2A01C74CD8D00AED138 /* AppDelegate.swift */,
 				F97DE2A41C74CD8D00AED138 /* Main.storyboard */,
 				F97DE2A71C74CD8D00AED138 /* Assets.xcassets */,
@@ -76,31 +77,38 @@
 			path = "Voice Pimp Demo";
 			sourceTree = "<group>";
 		};
-		F9DB52581C88BA0D00583372 /* View Controllers */ = {
+		F9DB52581C88BA0D00583372 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				F97DE2A21C74CD8D00AED138 /* RecordSoundsViewController.swift */,
 				F97DE2B61C74E7E800AED138 /* PlaySoundsViewController.swift */,
 				F9C467C11C7778A5004B21EE /* SavedSoundsTableViewController.swift */,
 			);
-			name = "View Controllers";
+			name = Controller;
 			sourceTree = "<group>";
 		};
-		F9DB52591C88BA2E00583372 /* Custom Views */ = {
+		F9DB52591C88BA2E00583372 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				F9FDC0DB1C78B9D600457D7C /* TableViewCell.swift */,
 			);
-			name = "Custom Views";
+			name = View;
 			sourceTree = "<group>";
 		};
-		F9DB525A1C88BA4B00583372 /* Custom Classes */ = {
+		F9DB525A1C88BA4B00583372 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F9DB52541C88A23100583372 /* AudioEngine.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F9DC28F71CB406D2009C5A74 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
 				F97DE2B21C74DD2700AED138 /* Recorded Audio.swift */,
 			);
-			name = "Custom Classes";
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
