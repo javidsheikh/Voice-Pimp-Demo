@@ -73,10 +73,10 @@ class SavedSoundsTableViewController: UITableViewController {
         cell.cellDate.text = audioInstance.date
         
         cell.playButton.tag = indexPath.row
-        cell.playButton.addTarget(self, action: "presentPlayController:", forControlEvents: .TouchUpInside)
+        cell.playButton.addTarget(self, action: #selector(SavedSoundsTableViewController.presentPlayController(_:)), forControlEvents: .TouchUpInside)
         
         cell.shareButton.tag = indexPath.row
-        cell.shareButton.addTarget(self, action: "presentShareController:", forControlEvents: .TouchUpInside)
+        cell.shareButton.addTarget(self, action: #selector(SavedSoundsTableViewController.presentShareController(_:)), forControlEvents: .TouchUpInside)
         
         return cell
     }
@@ -91,7 +91,7 @@ class SavedSoundsTableViewController: UITableViewController {
         }
     }
     
-    // MARK: Helper functions
+    // MARK: IBActions
     @IBAction func popToRecordVC(sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }

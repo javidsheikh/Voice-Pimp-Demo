@@ -17,8 +17,8 @@ class RecordSoundsViewController: UIViewController {
     var recordedAudio: RecordedAudio!
     var savedAudio: [RecordedAudio]!
     
-    var iMinSessions = 5
-    var iTryAgainSessions = 3
+//    var minSessions = 5
+//    var tryAgainSessions = 3
     
     var filePath : String {
         let manager = NSFileManager.defaultManager()
@@ -51,7 +51,7 @@ class RecordSoundsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        //TODO: disable segue to saved audio button if savedAudio array is empty
+        // Disable segue to saved audio button if savedAudio array is empty
         if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [RecordedAudio] {
             self.savedAudio = array
             self.savedAudioButton.enabled = true
@@ -63,7 +63,7 @@ class RecordSoundsViewController: UIViewController {
         self.recordButton.enabled = true
         self.recordPrompt.text = "Tap above to start recording"
         
-        self.rateMe()
+//        self.rateMe()
     }
 
     override func didReceiveMemoryWarning() {
@@ -149,37 +149,37 @@ class RecordSoundsViewController: UIViewController {
         return filePath!
     }
     
-    // MARK: Rate app functions
-    func rateMe() {
-        let neverRate = NSUserDefaults.standardUserDefaults().boolForKey("neverRate")
-        var numLaunches = NSUserDefaults.standardUserDefaults().integerForKey("numLaunches") + 1
-        if (!neverRate && (numLaunches == iMinSessions || numLaunches >= (iMinSessions + iTryAgainSessions + 1))) {
-            showRateMe()
-            numLaunches = iMinSessions + 1
-        }
-        NSUserDefaults.standardUserDefaults().setInteger(numLaunches, forKey: "numLaunches")
-    }
-    
-    func showRateMe() {
-        let alert = UIAlertController(title: "Rate Us", message: "Do you love Voice Pimp? Please rate us on the app store.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Rate Voice Pimp", style: UIAlertActionStyle.Default, handler: { alertAction in
-            // TODO: Add iTunes Connect App ID
-            //            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<iTUNES CONNECT APP ID>")!)
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
-            // TODO: Amend URL
-            UIApplication.sharedApplication().openURL(NSURL(string: "https://theysaidso.com/")!)
-            alert.dismissViewControllerAnimated(true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.Default, handler: { alertAction in
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
-            alert.dismissViewControllerAnimated(true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Maybe Later", style: UIAlertActionStyle.Default, handler: { alertAction in
-            alert.dismissViewControllerAnimated(true, completion: nil)
-        }))
-        // TODO: resolve detached view controller problem
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
+    // MARK: Rate app functions - to be uncommented once App ID is received
+//    func rateMe() {
+//        let neverRate = NSUserDefaults.standardUserDefaults().boolForKey("neverRate")
+//        var numLaunches = NSUserDefaults.standardUserDefaults().integerForKey("numLaunches") + 1
+//        if (!neverRate && (numLaunches == minSessions || numLaunches >= (minSessions + tryAgainSessions + 1))) {
+//            showRateMe()
+//            numLaunches = minSessions + 1
+//        }
+//        NSUserDefaults.standardUserDefaults().setInteger(numLaunches, forKey: "numLaunches")
+//    }
+//    
+//    func showRateMe() {
+//        let alert = UIAlertController(title: "Rate Us", message: "Do you love Voice Pimp? Please rate us on the app store.", preferredStyle: UIAlertControllerStyle.Alert)
+//        alert.addAction(UIAlertAction(title: "Rate Voice Pimp", style: UIAlertActionStyle.Default, handler: { alertAction in
+//            // TODO: Add iTunes Connect App ID
+//            //            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<iTUNES CONNECT APP ID>")!)
+//            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
+//            // TODO: Amend URL
+//            UIApplication.sharedApplication().openURL(NSURL(string: "https://theysaidso.com/")!)
+//            alert.dismissViewControllerAnimated(true, completion: nil)
+//        }))
+//        alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.Default, handler: { alertAction in
+//            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
+//            alert.dismissViewControllerAnimated(true, completion: nil)
+//        }))
+//        alert.addAction(UIAlertAction(title: "Maybe Later", style: UIAlertActionStyle.Default, handler: { alertAction in
+//            alert.dismissViewControllerAnimated(true, completion: nil)
+//        }))
+//        // TODO: resolve detached view controller problem
+//        self.presentViewController(alert, animated: true, completion: nil)
+//    }
 }
 
 // MARK: AudioRecorder delegate
