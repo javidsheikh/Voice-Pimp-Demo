@@ -167,7 +167,7 @@ class RecordSoundsViewController: UIViewController {
 //            //            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<iTUNES CONNECT APP ID>")!)
 //            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
 //            // TODO: Amend URL
-//            UIApplication.sharedApplication().openURL(NSURL(string: "https://theysaidso.com/")!)
+//            UIApplication.sharedApplication().openURL(NSURL(string: "")!)
 //            alert.dismissViewControllerAnimated(true, completion: nil)
 //        }))
 //        alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.Default, handler: { alertAction in
