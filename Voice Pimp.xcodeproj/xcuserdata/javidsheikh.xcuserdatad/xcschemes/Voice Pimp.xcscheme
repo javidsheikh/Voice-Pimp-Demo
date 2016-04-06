@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F97DE29C1C74CD8D00AED138"
-               BuildableName = "Voice Pimp Demo.app"
-               BlueprintName = "Voice Pimp Demo"
-               ReferencedContainer = "container:Voice Pimp Demo.xcodeproj">
+               BuildableName = "Voice Pimp.app"
+               BlueprintName = "Voice Pimp"
+               ReferencedContainer = "container:Voice Pimp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F97DE29C1C74CD8D00AED138"
-            BuildableName = "Voice Pimp Demo.app"
-            BlueprintName = "Voice Pimp Demo"
-            ReferencedContainer = "container:Voice Pimp Demo.xcodeproj">
+            BuildableName = "Voice Pimp.app"
+            BlueprintName = "Voice Pimp"
+            ReferencedContainer = "container:Voice Pimp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F97DE29C1C74CD8D00AED138"
-            BuildableName = "Voice Pimp Demo.app"
-            BlueprintName = "Voice Pimp Demo"
-            ReferencedContainer = "container:Voice Pimp Demo.xcodeproj">
+            BuildableName = "Voice Pimp.app"
+            BlueprintName = "Voice Pimp"
+            ReferencedContainer = "container:Voice Pimp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F97DE29C1C74CD8D00AED138"
-            BuildableName = "Voice Pimp Demo.app"
-            BlueprintName = "Voice Pimp Demo"
-            ReferencedContainer = "container:Voice Pimp Demo.xcodeproj">
+            BuildableName = "Voice Pimp.app"
+            BlueprintName = "Voice Pimp"
+            ReferencedContainer = "container:Voice Pimp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

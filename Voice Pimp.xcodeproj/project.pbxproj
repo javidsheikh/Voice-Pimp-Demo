@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F97DE29D1C74CD8D00AED138 /* Voice Pimp Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voice Pimp Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F97DE29D1C74CD8D00AED138 /* Voice Pimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voice Pimp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97DE2A01C74CD8D00AED138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F97DE2A21C74CD8D00AED138 /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
 		F97DE2A51C74CD8D00AED138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		F97DE2941C74CD8D00AED138 = {
 			isa = PBXGroup;
 			children = (
-				F97DE29F1C74CD8D00AED138 /* Voice Pimp Demo */,
+				F97DE29F1C74CD8D00AED138 /* Voice Pimp */,
 				F97DE29E1C74CD8D00AED138 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,12 +56,12 @@
 		F97DE29E1C74CD8D00AED138 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F97DE29D1C74CD8D00AED138 /* Voice Pimp Demo.app */,
+				F97DE29D1C74CD8D00AED138 /* Voice Pimp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F97DE29F1C74CD8D00AED138 /* Voice Pimp Demo */ = {
+		F97DE29F1C74CD8D00AED138 /* Voice Pimp */ = {
 			isa = PBXGroup;
 			children = (
 				F9DC28F71CB406D2009C5A74 /* Utility */,
@@ -74,7 +74,7 @@
 				F97DE2A91C74CD8D00AED138 /* LaunchScreen.storyboard */,
 				F97DE2AC1C74CD8D00AED138 /* Info.plist */,
 			);
-			path = "Voice Pimp Demo";
+			path = "Voice Pimp";
 			sourceTree = "<group>";
 		};
 		F9DB52581C88BA0D00583372 /* Controller */ = {
@@ -114,9 +114,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F97DE29C1C74CD8D00AED138 /* Voice Pimp Demo */ = {
+		F97DE29C1C74CD8D00AED138 /* Voice Pimp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F97DE2AF1C74CD8D00AED138 /* Build configuration list for PBXNativeTarget "Voice Pimp Demo" */;
+			buildConfigurationList = F97DE2AF1C74CD8D00AED138 /* Build configuration list for PBXNativeTarget "Voice Pimp" */;
 			buildPhases = (
 				F97DE2991C74CD8D00AED138 /* Sources */,
 				F97DE29A1C74CD8D00AED138 /* Frameworks */,
@@ -126,9 +126,9 @@
 			);
 			dependencies = (
 			);
-			name = "Voice Pimp Demo";
+			name = "Voice Pimp";
 			productName = "Voice Pimp Demo";
-			productReference = F97DE29D1C74CD8D00AED138 /* Voice Pimp Demo.app */;
+			productReference = F97DE29D1C74CD8D00AED138 /* Voice Pimp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -147,7 +147,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F97DE2981C74CD8D00AED138 /* Build configuration list for PBXProject "Voice Pimp Demo" */;
+			buildConfigurationList = F97DE2981C74CD8D00AED138 /* Build configuration list for PBXProject "Voice Pimp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -160,7 +160,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F97DE29C1C74CD8D00AED138 /* Voice Pimp Demo */,
+				F97DE29C1C74CD8D00AED138 /* Voice Pimp */,
 			);
 		};
 /* End PBXProject section */
@@ -302,10 +302,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Voice Pimp Demo/Info.plist";
+				INFOPLIST_FILE = "Voice Pimp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.JavidSheikh.Voice-Pimp-Demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JavidSheikh.Voice-Pimp";
+				PRODUCT_NAME = "Voice Pimp";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -317,10 +317,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Voice Pimp Demo/Info.plist";
+				INFOPLIST_FILE = "Voice Pimp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.JavidSheikh.Voice-Pimp-Demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JavidSheikh.Voice-Pimp";
+				PRODUCT_NAME = "Voice Pimp";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -329,7 +329,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F97DE2981C74CD8D00AED138 /* Build configuration list for PBXProject "Voice Pimp Demo" */ = {
+		F97DE2981C74CD8D00AED138 /* Build configuration list for PBXProject "Voice Pimp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F97DE2AD1C74CD8D00AED138 /* Debug */,
@@ -338,7 +338,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F97DE2AF1C74CD8D00AED138 /* Build configuration list for PBXNativeTarget "Voice Pimp Demo" */ = {
+		F97DE2AF1C74CD8D00AED138 /* Build configuration list for PBXNativeTarget "Voice Pimp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F97DE2B01C74CD8D00AED138 /* Debug */,
