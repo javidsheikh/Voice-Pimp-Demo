@@ -9,7 +9,7 @@
         <!--Voice Pimp-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="Voice_Pimp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -158,7 +158,7 @@
         <!--Add Effects-->
         <scene sceneID="AaN-oV-ws7">
             <objects>
-                <viewController title="Add Effects" id="jaX-xU-ZCU" customClass="PlaySoundsViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Effects" id="jaX-xU-ZCU" customClass="PlaySoundsViewController" customModule="Voice_Pimp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kza-ab-Kg9"/>
                         <viewControllerLayoutGuide type="bottom" id="LAn-rz-ikV"/>
@@ -399,14 +399,14 @@
         <!--Saved Audio-->
         <scene sceneID="Wfv-s4-UyU">
             <objects>
-                <tableViewController title="Saved Audio" id="7Tl-Dl-Z1Q" customClass="SavedSoundsTableViewController" customModule="Voice_Pimp_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Saved Audio" id="7Tl-Dl-Z1Q" customClass="SavedSoundsTableViewController" customModule="Voice_Pimp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="141" sectionHeaderHeight="28" sectionFooterHeight="28" id="a40-FY-HNh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="150" id="wzr-zg-qk3" customClass="TableViewCell" customModule="Voice_Pimp_Demo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="150" id="wzr-zg-qk3" customClass="TableViewCell" customModule="Voice_Pimp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wzr-zg-qk3" id="xVp-qN-Z8R">
@@ -414,7 +414,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VoicePimp" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-Dq-Lwv">
-                                            <rect key="frame" x="23" y="12" width="142" height="125"/>
+                                            <rect key="frame" x="8" y="12" width="142" height="125"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="142" id="SNi-yo-LsA"/>
                                             </constraints>
@@ -506,7 +506,7 @@
                                             <variation key="heightClass=regular-widthClass=regular" constant="140"/>
                                         </constraint>
                                         <constraint firstItem="G1Y-b7-iZX" firstAttribute="trailing" secondItem="xVp-qN-Z8R" secondAttribute="trailingMargin" id="fOe-bi-f47"/>
-                                        <constraint firstItem="0wD-Dq-Lwv" firstAttribute="leading" secondItem="xVp-qN-Z8R" secondAttribute="leadingMargin" constant="15" id="jyW-wH-aJE"/>
+                                        <constraint firstItem="0wD-Dq-Lwv" firstAttribute="leading" secondItem="xVp-qN-Z8R" secondAttribute="leadingMargin" id="jyW-wH-aJE"/>
                                         <constraint firstItem="0wD-Dq-Lwv" firstAttribute="leading" secondItem="xVp-qN-Z8R" secondAttribute="leadingMargin" constant="70" id="q5I-tK-jz0">
                                             <variation key="heightClass=regular-widthClass=regular" constant="140"/>
                                         </constraint>
