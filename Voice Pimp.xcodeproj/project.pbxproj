@@ -98,7 +98,7 @@
 		F9DB525A1C88BA4B00583372 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F9DB52541C88A23100583372 /* AudioEngine.swift */,
+				F97DE2B21C74DD2700AED138 /* Recorded Audio.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 		F9DC28F71CB406D2009C5A74 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				F97DE2B21C74DD2700AED138 /* Recorded Audio.swift */,
+				F9DB52541C88A23100583372 /* AudioEngine.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";

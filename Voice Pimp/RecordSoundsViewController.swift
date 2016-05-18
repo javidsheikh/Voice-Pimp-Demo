@@ -174,7 +174,7 @@ class RecordSoundsViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Maybe Later", style: UIAlertActionStyle.Default, handler: { alertAction in
             alert.dismissViewControllerAnimated(true, completion: nil)
         }))
-        // TODO: resolve detached view controller problem
+        
         self.presentViewController(alert, animated: true, completion: nil)
     }
 }
