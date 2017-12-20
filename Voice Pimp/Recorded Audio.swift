@@ -22,15 +22,15 @@ class RecordedAudio: NSObject, NSCoding {
     
     // MARK: NSCoding
     
-    func encodeWithCoder(archiver: NSCoder) {
-        archiver.encodeObject(aacURL, forKey: "aacURL")
-        archiver.encodeObject(title, forKey: "title")
-        archiver.encodeObject(date, forKey: "date")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(aacURL, forKey: "aacURL")
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(date, forKey: "date")
     }
     
     required init(coder unarchiver: NSCoder) {
-        aacURL = unarchiver.decodeObjectForKey("aacURL") as! NSURL
-        title = unarchiver.decodeObjectForKey("title") as! String
-        date = unarchiver.decodeObjectForKey("date") as! String
+        aacURL = unarchiver.decodeObject(forKey: "aacURL") as! NSURL
+        title = unarchiver.decodeObject(forKey: "title") as! String
+        date = unarchiver.decodeObject(forKey: "date") as! String
     }
 }

@@ -31,9 +31,9 @@ class AudioEngine: NSObject {
     var activePlayer = ActivePlayer.None
     
     var filePath : String {
-        let manager = NSFileManager.defaultManager()
-        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! as NSURL
-        return url.URLByAppendingPathComponent("savedAudioArray").path!
+        let manager = FileManager.default
+        let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
+        return url.appendingPathComponent("savedAudioArray")!.path
     }
     
     // MARK: Initialization
@@ -41,7 +41,7 @@ class AudioEngine: NSObject {
         
         super.init()
         
-        if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [RecordedAudio] {
+        if let array = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [RecordedAudio] {
             savedAudio = array
         }
         
@@ -62,23 +62,23 @@ class AudioEngine: NSObject {
     // MARK: Setup functions
     func createEngineAndAttachNodes() {
         engine = AVAudioEngine()
-        engine.attachNode(delayPlayer)
-        engine.attachNode(pitchPlayer)
-        engine.attachNode(distortionPlayer)
-        engine.attachNode(varispeedPlayer)
-        engine.attachNode(delay)
-        engine.attachNode(pitch)
-        engine.attachNode(distortion)
-        engine.attachNode(varispeed)
+        engine.attach(delayPlayer)
+        engine.attach(pitchPlayer)
+        engine.attach(distortionPlayer)
+        engine.attach(varispeedPlayer)
+        engine.attach(delay)
+        engine.attach(pitch)
+        engine.attach(distortion)
+        engine.attach(varispeed)
     }
     
     func loadAudioLoop(receivedAudio: RecordedAudio) {
         let audioLoopURL = receivedAudio.aacURL
         let audioLoopFile: AVAudioFile
         do {
-            audioLoopFile = try AVAudioFile(forReading: audioLoopURL)
-            loopBuffer = AVAudioPCMBuffer(PCMFormat: audioLoopFile.processingFormat, frameCapacity: AVAudioFrameCount(audioLoopFile.length))
-            try audioLoopFile.readIntoBuffer(loopBuffer)
+            audioLoopFile = try AVAudioFile(forReading: audioLoopURL as URL)
+            loopBuffer = AVAudioPCMBuffer(pcmFormat: audioLoopFile.processingFormat, frameCapacity: AVAudioFrameCount(audioLoopFile.length))
+            try audioLoopFile.read(into: loopBuffer)
         } catch let error as NSError {
             fatalError("Couldn't read audioLoopFile into buffer, \(error.localizedDescription)")
         }
@@ -101,7 +101,7 @@ class AudioEngine: NSObject {
     }
     
     func startEngine() {
-        if !engine.running {
+        if !engine.isRunning {
             do {
                 try engine.start()
             } catch let error as NSError {
@@ -111,21 +111,21 @@ class AudioEngine: NSObject {
     }
     
     func audioFileURL(fileExtension: String) -> NSURL {
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let currentDateTime = NSDate()
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime) + fileExtension
+        let recordingName = formatter.string(from: currentDateTime as Date) + fileExtension
         let pathArray = [dirPath, recordingName]
-        let filePath = NSURL.fileURLWithPathComponents(pathArray)!
-        return filePath
+        let filePath = NSURL.fileURL(withPathComponents: pathArray)!
+        return filePath as NSURL
     }
     
     // MARK: Record functions
     func startRecordingMixerOutput() {
         // install a tap on the main mixer output bus and write output buffers to file
         if mixerOutputFileURL == nil {
-            mixerOutputFileURL = audioFileURL(".aac")
+            mixerOutputFileURL = audioFileURL(fileExtension: ".aac")
         }
         
         let mainMixer = engine.mainMixerNode
@@ -133,22 +133,22 @@ class AudioEngine: NSObject {
         
         // Recording settings
         let recordSettings:[String : AnyObject] = [
-            AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatMPEG4AAC),
-            AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
-            AVEncoderBitRateKey : 320000,
-            AVNumberOfChannelsKey: 2,
-            AVSampleRateKey : 44100.0
+            AVFormatIDKey: NSNumber(value: kAudioFormatMPEG4AAC),
+            AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue as AnyObject,
+            AVEncoderBitRateKey : 320000 as AnyObject,
+            AVNumberOfChannelsKey: 2 as AnyObject,
+            AVSampleRateKey : 44100.0 as AnyObject
         ]
         do {
-            mixerOutputFile = try AVAudioFile(forWriting: mixerOutputFileURL!, settings: recordSettings)
+            mixerOutputFile = try AVAudioFile(forWriting: mixerOutputFileURL! as URL, settings: recordSettings)
         } catch let error as NSError {
             fatalError("mixerOutputFile is nil, \(error.localizedDescription)")
         }
         
         self.startEngine()
-        mainMixer.installTapOnBus(0, bufferSize: 4096, format: mainMixer.outputFormatForBus(0)) {buffer, when in
+        mainMixer.installTap(onBus: 0, bufferSize: 4096, format: mainMixer.outputFormat(forBus: 0)) {buffer, when in
             do {
-                try mixerOutputFile.writeFromBuffer(buffer)
+                try mixerOutputFile.write(from: buffer)
             } catch let error as NSError {
                 fatalError("error writing buffer data to file, \(error.localizedDescription)")
             } catch _ {
@@ -160,7 +160,7 @@ class AudioEngine: NSObject {
     
     func stopRecordingMixerOutput() {
         if isRecording {
-            engine.mainMixerNode.removeTapOnBus(0)
+            engine.mainMixerNode.removeTap(onBus: 0)
             isRecording = false
         }
     }
@@ -171,7 +171,7 @@ class AudioEngine: NSObject {
         activePlayer = .PitchPlayer
         pitch.pitch = pitchLevel
         self.startEngine()
-        pitchPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+        pitchPlayer.scheduleBuffer(loopBuffer, at: nil, options: .loops, completionHandler: nil)
         pitchPlayer.play()
         startRecordingMixerOutput()
     }
@@ -181,7 +181,7 @@ class AudioEngine: NSObject {
         activePlayer = .DelayPlayer
         delay.delayTime = delayLevel
         self.startEngine()
-        delayPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+        delayPlayer.scheduleBuffer(loopBuffer, at: nil, options: .loops, completionHandler: nil)
         delayPlayer.play()
         startRecordingMixerOutput()
     }
@@ -191,7 +191,7 @@ class AudioEngine: NSObject {
         activePlayer = .DistortionPlayer
         distortion.loadFactoryPreset(distortionPreset)
         self.startEngine()
-        distortionPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+        distortionPlayer.scheduleBuffer(loopBuffer, at: nil, options: .loops, completionHandler: nil)
         distortionPlayer.play()
         startRecordingMixerOutput()
     }
@@ -201,7 +201,7 @@ class AudioEngine: NSObject {
         activePlayer = .VarispeedPlayer
         varispeed.rate = varispeedLevel
         self.startEngine()
-        varispeedPlayer.scheduleBuffer(loopBuffer, atTime: nil, options: .Loops, completionHandler: nil)
+        varispeedPlayer.scheduleBuffer(loopBuffer, at: nil, options: .loops, completionHandler: nil)
         varispeedPlayer.play()
         startRecordingMixerOutput()
     }
@@ -231,12 +231,12 @@ class AudioEngine: NSObject {
         
         newSavedAudio.title = title
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy - HH:mm"
-        let formattedDate = formatter.stringFromDate(NSDate())
+        let formattedDate = formatter.string(from: Date())
         newSavedAudio.date = formattedDate
         
-        savedAudio.insert(newSavedAudio, atIndex: 0)
+        savedAudio.insert(newSavedAudio, at: 0)
         
         NSKeyedArchiver.archiveRootObject(savedAudio, toFile: filePath)
         

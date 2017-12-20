@@ -21,9 +21,9 @@ class RecordSoundsViewController: UIViewController {
     var tryAgainSessions = 3
     
     var filePath : String {
-        let manager = NSFileManager.defaultManager()
-        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! as NSURL
-        return url.URLByAppendingPathComponent("savedAudioArray").path!
+        let manager = FileManager.default
+        let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
+        return url.appendingPathComponent("savedAudioArray")!.path
     }
     
     // MARK: IBOutlets
@@ -38,29 +38,29 @@ class RecordSoundsViewController: UIViewController {
         
         // Nav bar setup
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 53/255, blue: 53/255, alpha: 1)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 24)!]
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "MarkerFelt-Thin", size: 24)!]
         
         // Toolbar setup
         self.navigationController?.toolbar.barTintColor = UIColor(red: 255/255, green: 53/255, blue: 53/255, alpha: 1)
-        self.navigationController?.toolbar.translucent = false
-        self.navigationController?.toolbar.tintColor = UIColor.whiteColor()
+        self.navigationController?.toolbar.isTranslucent = false
+        self.navigationController?.toolbar.tintColor = UIColor.white
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         // Disable segue to saved audio button if savedAudio array is empty
-        if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [RecordedAudio] {
+        if let array = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [RecordedAudio] {
             self.savedAudio = array
-            self.savedAudioButton.enabled = true
+            self.savedAudioButton.isEnabled = true
         } else {
-            self.savedAudioButton.enabled = false
+            self.savedAudioButton.isEnabled = false
         }
         
-        self.stopButton.hidden = true
-        self.recordButton.enabled = true
+        self.stopButton.isHidden = true
+        self.recordButton.isEnabled = true
         self.recordPrompt.text = "Tap above to start recording"
         
         self.rateMe()
@@ -71,19 +71,11 @@ class RecordSoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueToPlaySoundsVC" {
-            let controller = segue.destinationViewController as! PlaySoundsViewController
-            controller.receivedAudio = recordedAudio
-        }
-    }
-    
     // IBActions
     @IBAction func recordAudio(sender: UIButton) {
         // Update UI
-        self.recordButton.enabled = false
-        self.stopButton.hidden = false
+        self.recordButton.isEnabled = false
+        self.stopButton.isHidden = false
         self.recordPrompt.text = "Recording..."
         
         // Create recording session
@@ -96,25 +88,25 @@ class RecordSoundsViewController: UIViewController {
         
         // Set output port to device speaker
         do {
-            try session.overrideOutputAudioPort(.Speaker)
+            try session.overrideOutputAudioPort(.speaker)
         } catch {
             print("Could not override output audio port.")
         }
         
         // Recording settings
         let recordSettings:[String : AnyObject] = [
-            AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatMPEG4AAC),
-            AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
-            AVEncoderBitRateKey : 320000,
-            AVNumberOfChannelsKey: 2,
-            AVSampleRateKey : 44100.0
+            AVFormatIDKey: NSNumber(value: kAudioFormatMPEG4AAC),
+            AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue as AnyObject,
+            AVEncoderBitRateKey : 320000 as AnyObject,
+            AVNumberOfChannelsKey: 2 as AnyObject,
+            AVSampleRateKey : 44100.0 as AnyObject
         ]
         
         // Start recording
         do {
-            try recorder = AVAudioRecorder(URL: createAudioFileURL(), settings: recordSettings)
+            try recorder = AVAudioRecorder(url: createAudioFileURL() as URL, settings: recordSettings)
             recorder.delegate = self
-            recorder.meteringEnabled = true
+            recorder.isMeteringEnabled = true
             recorder.prepareToRecord()
             recorder.record()
         } catch {
@@ -137,57 +129,59 @@ class RecordSoundsViewController: UIViewController {
     }
 
     @IBAction func segueToSavedAudio(sender: UIBarButtonItem) {
-        self.performSegueWithIdentifier("segueToSavedSoundsVC", sender: self)
+        self.performSegue(withIdentifier: "segueToSavedSoundsVC", sender: self)
     }
     
     // MARK: Helper functions
     func createAudioFileURL() -> NSURL {
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let recordingName = "recorded_audio.aac"
         let pathArray = [dirPath, recordingName]
-        let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        return filePath!
+        let filePath = NSURL.fileURL(withPathComponents: pathArray)
+        return filePath! as NSURL
     }
     
     // MARK: Rate app functions - to be uncommented once App ID is received
     func rateMe() {
-        let neverRate = NSUserDefaults.standardUserDefaults().boolForKey("neverRate")
-        var numLaunches = NSUserDefaults.standardUserDefaults().integerForKey("numLaunches") + 1
+        let neverRate = UserDefaults.standard.bool(forKey: "neverRate")
+        var numLaunches = UserDefaults.standard.integer(forKey: "numLaunches") + 1
         if (!neverRate && (numLaunches == minSessions || numLaunches >= (minSessions + tryAgainSessions + 1))) {
             showRateMe()
             numLaunches = minSessions + 1
         }
-        NSUserDefaults.standardUserDefaults().setInteger(numLaunches, forKey: "numLaunches")
+        UserDefaults.standard.set(numLaunches, forKey: "numLaunches")
     }
     
     func showRateMe() {
-        let alert = UIAlertController(title: "Rate Us", message: "Do you love Voice Pimp? Please rate us on the app store.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Rate Voice Pimp", style: UIAlertActionStyle.Default, handler: { alertAction in
-            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1100673414")!)
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
-            alert.dismissViewControllerAnimated(true, completion: nil)
+        let alert = UIAlertController(title: "Rate Us", message: "Do you love Voice Pimp? Please rate us on the app store.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Rate Voice Pimp", style: UIAlertActionStyle.default, handler: { alertAction in
+            UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1100673414")! as URL)
+            UserDefaults.standard.set(true, forKey: "neverRate")
+            alert.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.Default, handler: { alertAction in
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
-            alert.dismissViewControllerAnimated(true, completion: nil)
+        alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.default, handler: { alertAction in
+            UserDefaults.standard.set(true, forKey: "neverRate")
+            alert.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Maybe Later", style: UIAlertActionStyle.Default, handler: { alertAction in
-            alert.dismissViewControllerAnimated(true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Maybe Later", style: UIAlertActionStyle.default, handler: { alertAction in
+            alert.dismiss(animated: true, completion: nil)
         }))
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
 // MARK: AudioRecorder delegate
 extension RecordSoundsViewController: AVAudioRecorderDelegate {
     
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             recordedAudio = RecordedAudio(aacURL: NSURL(fileURLWithPath: ""), title: "", date: "")
-            recordedAudio.aacURL = recorder.url
-            recordedAudio.title = recorder.url.lastPathComponent!
-            self.performSegueWithIdentifier("segueToPlaySoundsVC", sender: self)
+            recordedAudio.aacURL = recorder.url as NSURL
+            recordedAudio.title = recorder.url.lastPathComponent
+            let controller = storyboard?.instantiateViewController(withIdentifier: "PlaySoundsViewController") as! PlaySoundsViewController
+            controller.receivedAudio = recordedAudio
+            self.navigationController?.pushViewController(controller, animated: true)
         } else {
             print("Recording was unsuccessful")
         }

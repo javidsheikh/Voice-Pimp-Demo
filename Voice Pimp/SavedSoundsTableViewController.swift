@@ -16,20 +16,23 @@ class SavedSoundsTableViewController: UITableViewController {
     var documentInteractionController: UIDocumentInteractionController!
     
     var filePath : String {
-        let manager = NSFileManager.defaultManager()
-        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! as NSURL
-        return url.URLByAppendingPathComponent("savedAudioArray").path!
+        let manager = FileManager.default
+        let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
+        return url.appendingPathComponent("savedAudioArray")!.path
     }
     
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let array = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? [RecordedAudio] {
+        if let array = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [RecordedAudio] {
             savedAudio = array
         }
 
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.tableView.backgroundColor = UIColor.init(hexString: "6C7DF5")
+        self.tableView.allowsSelection = false
         
         self.tableView.reloadData()
     }
@@ -42,58 +45,58 @@ class SavedSoundsTableViewController: UITableViewController {
     // MARK: IBActions
     @IBAction func presentPlayController(sender: UIButton) {
         let audioInstance = self.savedAudio[sender.tag] as RecordedAudio
-        self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.aacURL)
+        self.documentInteractionController = UIDocumentInteractionController(url: audioInstance.aacURL as URL)
         self.documentInteractionController.delegate = self
         self.documentInteractionController.name = audioInstance.title
-        self.documentInteractionController.presentPreviewAnimated(true)
+        self.documentInteractionController.presentPreview(animated: true)
     }
     
     @IBAction func presentShareController(sender: UIButton) {
         let audioInstance = self.savedAudio[sender.tag] as RecordedAudio
-        self.documentInteractionController = UIDocumentInteractionController(URL: audioInstance.aacURL)
+        self.documentInteractionController = UIDocumentInteractionController(url: audioInstance.aacURL as URL)
         self.documentInteractionController.delegate = self
-        self.documentInteractionController.presentOpenInMenuFromRect(CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2, width: 300, height: 300), inView: self.view, animated: true)
+        self.documentInteractionController.presentOpenInMenu(from: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2, width: 300, height: 300), in: self.view, animated: true)
     }
 
     // MARK: - Table view delegate methods
-    // Sections
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedAudio.count
     }
     
     // Rows
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         let audioInstance = savedAudio[indexPath.row]
         cell.cellTitle.text = audioInstance.title
         cell.cellDate.text = audioInstance.date
         
         cell.playButton.tag = indexPath.row
-        cell.playButton.addTarget(self, action: #selector(SavedSoundsTableViewController.presentPlayController(_:)), forControlEvents: .TouchUpInside)
+        cell.playButton.addTarget(self, action: #selector(SavedSoundsTableViewController.presentPlayController(sender:)), for: .touchUpInside)
         
         cell.shareButton.tag = indexPath.row
-        cell.shareButton.addTarget(self, action: #selector(SavedSoundsTableViewController.presentShareController(_:)), forControlEvents: .TouchUpInside)
+        cell.shareButton.addTarget(self, action: #selector(SavedSoundsTableViewController.presentShareController(sender:)), for: .touchUpInside)
         
         return cell
     }
     
     // Populate cells
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            self.savedAudio.removeAtIndex(indexPath.row)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.savedAudio.remove(at: indexPath.row)
             NSKeyedArchiver.archiveRootObject(savedAudio, toFile: filePath)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
             tableView.reloadData()
         }
+
     }
     
     // MARK: IBActions
     @IBAction func popToRecordVC(sender: UIBarButtonItem) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
 }
@@ -101,7 +104,7 @@ class SavedSoundsTableViewController: UITableViewController {
 // MARK: UIDocumentInteractionController delegate
 extension SavedSoundsTableViewController: UIDocumentInteractionControllerDelegate {
     
-    func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
         if let navigationController = self.navigationController {
             return navigationController
         } else {
@@ -109,5 +112,25 @@ extension SavedSoundsTableViewController: UIDocumentInteractionControllerDelegat
         }
     }
 
+}
+
+extension UIColor {
+    convenience init(hexString: String) {
+        let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int = UInt32()
+        Scanner(string: hex).scanHexInt32(&int)
+        let a, r, g, b: UInt32
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (1, 1, 1, 0)
+        }
+        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
 }
 
